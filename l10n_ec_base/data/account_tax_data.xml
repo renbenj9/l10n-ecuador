@@ -1,0 +1,1574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="salevat12" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">IVA EN VENTA Cobrado (12%)</field>
+        <field name="description">IVA Cobrado 12%</field>
+        <field name="amount">12</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_vat12"/>
+        <field name="percent_report">12</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23101'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat12p" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">	IVA EN VENTA Pagado (12%)</field>
+        <field name="description">IVA Pagado 12%</field>
+        <field name="amount">12</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_vat12"/>
+        <field name="percent_report">12</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23101'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat12" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">IVA EN COMPRAS Cobrado (12%)</field>
+        <field name="description">IVA Cobrado 12%</field>
+        <field name="amount">12</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_vat12"/>
+        <field name="percent_report">12</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115101'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat12p" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">	IVA EN COMPRAS Pagado (12%)</field>
+        <field name="description">IVA Pagado 12%</field>
+        <field name="amount">12</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_vat12"/>
+        <field name="percent_report">12</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115101'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat312" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">	RET. EN COMPRAS TRANSFERENCIA DE BIENES MUEBLES DE NATURALEZA CORPORAL 1.75</field>
+        <field name="description">312</field>
+        <field name="amount">-1.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23204'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat303" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS HONORARIOS PROFESIONALES 10%</field>
+        <field name="description">303</field>
+        <field name="amount">-10</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">10</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23204'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23204'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat304" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS PREDOMINA EL INTELECTO</field>
+        <field name="description">304</field>
+        <field name="amount">-10</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">8</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23204'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23204'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat307" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS PREDOMINA MANO DE OBRA</field>
+        <field name="description">307</field>
+        <field name="amount">-2.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">2</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat308" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS SERVICIOS UTILIZACIÓN O APROVECHAMIENTO DE LA IMAGEN O RENOMBRE</field>
+        <field name="description">308</field>
+        <field name="amount">-2.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">10</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat310" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS TRANS. PRIVADO DE PASAJEROS O SERV. PÚBLICO O PRIVADO DE CA</field>
+        <field name="description">310</field>
+        <field name="amount">-1</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat320" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS ARRENDAMIENTO BIENES INMUEBLES</field>
+        <field name="description">320</field>
+        <field name="amount">-8</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">8</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23203'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23203'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat343A" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS APLICABLES EL POR ENERGIA ELECTRICA 1%</field>
+        <field name="description">343A</field>
+        <field name="amount">-1</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23205'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23205'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat345" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS APLICABLES EL 8%</field>
+        <field name="description">345</field>
+        <field name="amount">-8</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">8</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23203'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23203'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat346A" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS APLICABLES OTROS PORCENTAJES</field>
+        <field name="description">346A</field>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">0</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23206'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23206'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat1IR" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS APLICABLES OTROS PORCENTAJES</field>
+        <field name="description">1% IR</field>
+        <field name="amount">-1</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23206'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23206'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat344A" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS PAGO LOCAL T/C REPORTADO POR LA EMISORA (RECAP) APLICABLE 2%</field>
+        <field name="description">344A</field>
+        <field name="amount">-2</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">2</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23207'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23207'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat311" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS PAGOS A TRAVEZ DE LIQUIDACION DE COMPRA (NIVEL CULTURAL O RUSTICIDAD) 2%</field>
+        <field name="description">311</field>
+        <field name="amount">-2</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">2</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23207'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23207'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat309" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS PUBLICIDAD Y COMUNICACIÓN 1.75</field>
+        <field name="description">309</field>
+        <field name="amount">-1.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat322" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS SEGUROS Y REASEGUROS (PRIMAS Y CESIONES) 1.75</field>
+        <field name="description">322</field>
+        <field name="amount">-1.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat343B" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS APLICABLES EL POR ACTIVIDAD DE CONSTRUCCION DE OBRA MATERIAL INMUEBLE 1.75%</field>
+        <field name="description">343B</field>
+        <field name="amount">-1.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat3440" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">OTRAS RET. EN COMPRAS APLICABLES EL 2.75%</field>
+        <field name="description">3440</field>
+        <field name="amount">-2.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">2.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat344" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">OTRAS RET. EN COMPRAS APLICABLES AL 2.75%</field>
+        <field name="description">344</field>
+        <field name="amount">-2.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">2.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat346" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">OTRAS RET. EN COMPRAS APLICADAS A OTROS PORCENTAJES (INCLUYE EL REGIMEN MICROEMPRESARIAL) 1.75%</field>
+        <field name="description">346</field>
+        <field name="amount">-1.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat346275" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">OTRAS RET. EN COMPRAS APLICADAS A OTROS PORCENTAJES (INCLUYE EL REGIMEN MICROEMPRESARIAL) 2.75%</field>
+        <field name="description">346</field>
+        <field name="amount">-2.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">2.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23202'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat351" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">	IMPUESTO AL REGIMEN MICROEMPRESARIAL 1.75%</field>
+        <field name="description">351</field>
+        <field name="amount">-1.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23201'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat332" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS PAGOS DE BIENES O SERVICIOS NO SUJETOS A RETENCIÓN</field>
+        <field name="description">332</field>
+        <field name="amount">0.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_no_ret_ir"/>
+        <field name="percent_report">0.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat332G" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS PAGOS DE BIENES O SERVICIOS NO SUJETOS A RETENCIÓN</field>
+        <field name="description">332G</field>
+        <field name="amount">0.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_no_ret_ir"/>
+        <field name="percent_report">0.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat723" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS DEL IVA 20%</field>
+        <field name="description">723</field>
+        <field name="amount">-20.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">20.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23105'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23105'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat727" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS DEL IVA 50%</field>
+        <field name="description">727</field>
+        <field name="amount">-50.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">50.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23106'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23106'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat729" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS DEL IVA 70%</field>
+        <field name="description">729</field>
+        <field name="amount">-70.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">70.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23103'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23103'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat731" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS DEL IVA 100%</field>
+        <field name="description">731</field>
+        <field name="amount">-100.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">100.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23104'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23104'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat721" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS DEL IVA BIENES 10%</field>
+        <field name="description">721</field>
+        <field name="amount">-10.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_b"/>
+        <field name="percent_report">10.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23204'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23204'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat725" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN COMPRAS DEL IVA 30%</field>
+        <field name="description">725</field>
+        <field name="amount">-30.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">30.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23102'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23102'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat312" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA TRANSFERENCIA DE BIENES MUEBLES DE NATURALEZA CORPORAL 1.75</field>
+        <field name="description">312</field>
+        <field name="amount">-1.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115202'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115202'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat344" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">OTRAS RET. EN VENTA APLICABLES EL 2.75%</field>
+        <field name="description">344</field>
+        <field name="amount">-2.75</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">2.75</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115203'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115203'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat60910" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA DEL IVA 10%</field>
+        <field name="description">609-10</field>
+        <field name="amount">-10.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">10.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115205'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115205'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat60930" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA DEL IVA 30%</field>
+        <field name="description">609-30</field>
+        <field name="amount">-30.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">30.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115105'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115105'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat60970" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA DEL IVA 70%</field>
+        <field name="description">609-70</field>
+        <field name="amount">-70.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">70.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115106'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115106'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat609100" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA DEL IVA 100%</field>
+        <field name="description">609-100</field>
+        <field name="amount">-100.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_srv"/>
+        <field name="percent_report">100.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115107'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115107'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat3371" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA DEL IVA 1%</field>
+        <field name="description">337-1</field>
+        <field name="amount">-1.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_b"/>
+        <field name="percent_report">1.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115201'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115201'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat3378" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA DEL IVA 8%</field>
+        <field name="description">337-8</field>
+        <field name="amount">-8.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_b"/>
+        <field name="percent_report">8.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115204'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115204'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat33725" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RET. EN VENTA DEL IVA 25%</field>
+        <field name="description">337-25</field>
+        <field name="amount">-25.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_ret_vat_b"/>
+        <field name="percent_report">25.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115206'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 12,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115206'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="salevat0" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">IVA EN VENTA Cobrado (0%)</field>
+        <field name="description">IVA EN VENTA Cobrado 0%</field>
+        <field name="amount">0.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="tax_group_id" ref="tax_group_vat0"/>
+        <field name="percent_report">0.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23101'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat0" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">IVA EN COMPRAS Pagado (0%)</field>
+        <field name="description">IVA EN COMPRAS Pagado 0%</field>
+        <field name="amount">0.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_vat0"/>
+        <field name="percent_report">0.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115101'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec115101'),
+            }),
+        ]"/>
+    </record>
+
+    <record id="purchasevat343" model="account.tax.template">
+        <field name="chart_template_id" ref="ec_chart_template_prfk"/>
+        <field name="name">RETENCION 1% REGIMEN RIMPE</field>
+        <field name="description">343</field>
+        <field name="amount">-1.00</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="tax_group_id" ref="tax_group_ret_ir"/>
+        <field name="percent_report">1.00</field>
+        <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23205'),
+            }),
+        ]"/>
+        <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+            }),
+
+            (0,0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('ec23205'),
+            }),
+        ]"/>
+    </record>
+
+</odoo>

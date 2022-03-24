@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="tax_group_vat0" model="account.tax.group">
+            <field name="name">IVA 0%</field>
+            <field name="l10n_ec_type">cero_iva</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="tax_group_vat8" model="account.tax.group">
+            <field name="name">IVA 8%</field>
+            <field name="l10n_ec_type">ocho_iva</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="tax_group_vat12" model="account.tax.group">
+            <field name="name">IVA 12%</field>
+            <field name="l10n_ec_type">doce_iva</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="tax_group_vat14" model="account.tax.group">
+            <field name="name">IVA 14%</field>
+            <field name="l10n_ec_type">catorce_iva</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="tax_group_ret8" model="account.tax.group">
+            <field name="name">Retencion 8%</field>
+            <field name="l10n_ec_type">ocho_retencion</field>
+            <field name="sequence">50</field>
+        </record>
+        <record id="tax_group_ret30" model="account.tax.group">
+            <field name="name">Retencion 30%</field>
+            <field name="l10n_ec_type">treinta_retencion</field>
+            <field name="sequence">60</field>
+        </record>
+        <record id="tax_group_ret70" model="account.tax.group">
+            <field name="name">Retencion 70%</field>
+            <field name="l10n_ec_type">setenta_retencion</field>
+            <field name="sequence">70</field>
+        </record>
+        <record id="tax_group_ret100" model="account.tax.group">
+            <field name="name">Retencion 100%</field>
+            <field name="l10n_ec_type">cien_retencion</field>
+            <field name="sequence">80</field>
+        </record>
+        <record id="tax_group_ret_ir" model="account.tax.group">
+            <field name="name">Retención Impuesto a la Renta</field>
+            <field name="l10n_ec_type">ret_ir</field>
+            <field name="sequence">90</field>
+        </record>
+        <record id="tax_group_no_ret_ir" model="account.tax.group">
+            <field name="name">No sujeto a Retención Impuesto a la Renta</field>
+            <field name="l10n_ec_type">no_ret_ir</field>
+            <field name="sequence">100</field>
+        </record>
+        <record id="tax_group_ret_vat_srv" model="account.tax.group">
+            <field name="name">Retención IVA Servicios</field>
+            <field name="l10n_ec_type">ret_vat_srv</field>
+            <field name="sequence">110</field>
+        </record>
+        <record id="tax_group_ret_vat_b" model="account.tax.group">
+            <field name="name">Retención IVA Bienes</field>
+            <field name="l10n_ec_type">ret_vat_b</field>
+            <field name="sequence">120</field>
+        </record>
+       <record id="tax_group_vat" model="account.tax.group">
+            <field name="name">Impuestos al Valor Agregado</field>
+           <field name="l10n_ec_type">vata</field>
+           <field name="sequence">130</field>
+        </record>
+        <record id="tax_group_novat" model="account.tax.group">
+            <field name="name">No objeto de IVA</field>
+            <field name="l10n_ec_type">novat</field>
+            <field name="sequence">140</field>
+        </record>
+        <record id="tax_group_exento" model="account.tax.group">
+            <field name="name">exento</field>
+            <field name="l10n_ec_type">exento</field>
+            <field name="sequence">150</field>
+        </record>
+        <record id="tax_group_isd" model="account.tax.group">
+            <field name="name">Impuesto a la Salida de Capitales</field>
+            <field name="l10n_ec_type">isd</field>
+            <field name="sequence">160</field>
+        </record>
+        <record id="tax_group_iad" model="account.tax.group">
+            <field name="name">Impuesto Aduanas</field>
+            <field name="l10n_ec_type">iad</field>
+            <field name="sequence">170</field>
+        </record>
+        <record id="tax_group_comp" model="account.tax.group">
+            <field name="name">Compensaciones Tributarias</field>
+            <field name="l10n_ec_type">comp</field>
+            <field name="sequence">180</field>
+        </record>
+        <record id="tax_group_ice" model="account.tax.group">
+            <field name="name">Consumo Especial(ICE)</field>
+            <field name="l10n_ec_type">ice</field>
+            <field name="sequence">190</field>
+        </record>
+        <record id="tax_group_irbpnr" model="account.tax.group">
+            <field name="name">Botellas Plasticas (IRBPNR)</field>
+            <field name="l10n_ec_type">irbpnr</field>
+            <field name="sequence">200</field>
+        </record>
+    </data>
+</odoo>

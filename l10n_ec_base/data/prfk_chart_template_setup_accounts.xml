@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ec_chart_template_prfk" model="account.chart.template">
+        <!--<field name="income_currency_exchange_account_id" ref="4"/>
+        <field name="default_pos_receivable_account_id" ref="114" />
+        <field name="expense_currency_exchange_account_id" ref="ec520304"/>
+        <field name="property_account_receivable_id" ref="ec1102050101"/>
+        <field name="property_account_payable_id" ref="ec210301"/>-->
+        <!--Cuenta de Ingreso-->
+        <field name="property_account_income_categ_id" ref="prfk_account_chart_ec.ec41101"/>
+        <!--Cuenta de Gasto-->
+        <field name="property_account_expense_categ_id" ref="prfk_account_chart_ec.ec41101"/>
+        <!--Cuenta de entrada de Existencias-->
+        <!--<field name="property_stock_account_input_categ_id" ref="ec41101"/>-->
+        <!--Cuenta de salida de Existencias-->
+        <!--<field name="property_stock_account_output_categ_id" ref="ec514"/>-->
+        <!--Cuenta de valoracion de Existencias-->
+        <!--<field name="property_stock_valuation_account_id" ref="ec6"/>-->
+    </record>
+</odoo>

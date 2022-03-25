@@ -5,6 +5,7 @@
     'version': '1.1',
     'summary': 'Invoices & Payments',
     'sequence': 10,
+    'author': "Renan Nazate",
     'description': """
 Invoicing & Payments
 ====================

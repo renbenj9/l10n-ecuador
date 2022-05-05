@@ -23,8 +23,8 @@ class ResPartner(models.Model):
 
     @api.constrains("vat", "country_id", "l10n_latam_identification_type_id")
     def check_vat(self):
-        it_ruc = self.env.ref("l10n_ec.ec_ruc", False)
-        it_dni = self.env.ref("l10n_ec.ec_dni", False)
+        it_ruc = self.env.ref("l10n_ec_base.ec_ruc", False)
+        it_dni = self.env.ref("l10n_ec_base.ec_dni", False)
         ecuadorian_partners = self.filtered(
             lambda x: x.country_id == self.env.ref("base.ec")
         )

@@ -4,7 +4,7 @@
         <record id="ec_final_consumer" model="res.partner">
             <field name="name">Consumidor final</field>
             <field name="country_id" ref="base.ec"/>
-            <field name="l10n_latam_identification_type_id" ref="l10n_ec.ec_ruc"/>
+            <field name="l10n_latam_identification_type_id" ref="l10n_ec_base.ec_ruc"/>
             <field name="vat">9999999999999</field>
         </record>
         <record id="ec_social_security" model="res.partner">
@@ -14,7 +14,7 @@
             <field name="country_id" ref="base.ec"/>
             <field name="website">https://www.iess.gob.ec</field>
             <field name="is_company">1</field>
-            <field name="l10n_latam_identification_type_id" ref="l10n_ec.ec_ruc"/>
+            <field name="l10n_latam_identification_type_id" ref="l10n_ec_base.ec_ruc"/>
             <field name="vat">1760004650001</field>
         </record>
         <record id="ec_tax_authority" model="res.partner">
@@ -24,7 +24,7 @@
             <field name="country_id" ref="base.ec"/>
             <field name="website">http://www.sri.gob.ec</field>
             <field name="is_company">1</field>
-            <field name="l10n_latam_identification_type_id" ref="l10n_ec.ec_ruc"/>
+            <field name="l10n_latam_identification_type_id" ref="l10n_ec_base.ec_ruc"/>
             <field name="vat">1760013210001</field>
         </record>
     </data>

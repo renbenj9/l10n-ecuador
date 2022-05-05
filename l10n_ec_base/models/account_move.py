@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields, models, api
-from odoo.addons.l10n_ec.models.res_partner import verify_final_consumer
+from odoo.addons.l10n_ec_base.models.res_partner import verify_final_consumer
 
 _DOCUMENTS_MAPPING = {
     "01": [
@@ -130,16 +130,16 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     l10n_ec_sri_payment_id = fields.Many2one(
-        comodel_name="l10n_ec.sri.payment",
+        comodel_name="l10n_ec_base.sri.payment",
         string="Payment Method (SRI)",
     )
 
     def _get_l10n_ec_identification_type(self):
         self.ensure_one()
         move = self
-        it_ruc = self.env.ref("l10n_ec.ec_ruc", False)
-        it_dni = self.env.ref("l10n_ec.ec_dni", False)
-        it_passport = self.env.ref("l10n_ec.ec_passport", False)
+        it_ruc = self.env.ref("l10n_ec_base.ec_ruc", False)
+        it_dni = self.env.ref("l10n_ec_base.ec_dni", False)
+        it_passport = self.env.ref("l10n_ec_base.ec_passport", False)
         is_final_consumer = verify_final_consumer(move.partner_id.commercial_partner_id.vat)
         is_ruc = move.partner_id.commercial_partner_id.l10n_latam_identification_type_id.id == it_ruc.id
         is_dni = move.partner_id.commercial_partner_id.l10n_latam_identification_type_id.id == it_dni.id
@@ -176,7 +176,7 @@ class AccountMove(models.Model):
     def _get_l10n_ec_documents_allowed(self, identification_code):
         documents_allowed = self.env['l10n_latam.document.type']
         for document_ref in _DOCUMENTS_MAPPING.get(identification_code, []):
-            document_allowed = self.env.ref('l10n_ec.%s' % document_ref, False)
+            document_allowed = self.env.ref('l10n_ec_base.%s' % document_ref, False)
             if document_allowed:
                 documents_allowed |= document_allowed
         return documents_allowed

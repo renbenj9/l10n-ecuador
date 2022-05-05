@@ -3,7 +3,7 @@
     <data noupdate="1">
 
         <function name="try_loading" model="account.chart.template">
-            <value eval="[ref('l10n_ec.l10n_ec_ifrs')]"/>
+            <value eval="[ref('l10n_ec_base.l10n_ec_ifrs')]"/>
         </function>
 
     </data>

@@ -5,7 +5,7 @@
     'version': '1.1',
     'summary': 'Invoices & Payments',
     'sequence': 10,
-    'author': "Renan Nazate",
+    'author': "Renan Nazate , Hernan Espinoza",
     'description': """
 Invoicing & Payments
 ====================
@@ -24,22 +24,22 @@ You could use this simplified accounting in case you work with an (external) acc
     'data': [
         # Chart of Accounts
         "data/account_chart_template_data.xml",
-        # "data/account_group_template_data.xml",
+        "data/account_group_template_data.xml",
         "data/account.account.template.csv",
         "data/account_chart_template_setup_accounts.xml",
         # Taxes
         "data/account_tax_group_data.xml",
         "data/account_tax_report_data.xml",
-        # "data/account_tax_template_vat_data.xml",
-        # "data/account_tax_template_withhold_profit_data.xml",
-        # "data/account_tax_template_withhold_vat_data.xml",
+        "data/account_tax_template_vat_data.xml",
+        "data/account_tax_template_withhold_profit_data.xml",
+        "data/account_tax_template_withhold_vat_data.xml",
         "data/account_fiscal_position_template.xml",
         # Partners data
         "data/res.bank.csv",
         "data/l10n_latam_identification_type_data.xml",
-        # "data/res_partner_data.xml",
+        "data/res_partner_data.xml",
         # Other data
-        # "data/account_chart_template_configure_data.xml",
+        "data/account_chart_template_configure_data.xml",
         "data/l10n_latam.document.type.csv",
         "data/l10n_ec.sri.payment.csv",
         "views/account_tax_view.xml",

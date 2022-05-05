@@ -14,7 +14,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">411</field>
             <field name="l10n_ec_code_applied">421</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -25,7 +25,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat'),
                     'plus_report_line_ids': [ref('tax_report_line_104_421')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -37,7 +37,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat'),
                     'minus_report_line_ids': [ref('tax_report_line_104_421')],
                 })]"/>
         </record>
@@ -51,7 +51,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">412</field>
             <field name="l10n_ec_code_applied">422</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -62,7 +62,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat'),
                     'plus_report_line_ids': [ref('tax_report_line_104_422')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -74,7 +74,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat'),
                     'minus_report_line_ids': [ref('tax_report_line_104_421')],
                 })]"/>
         </record>
@@ -87,7 +87,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">415</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -98,7 +98,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -109,7 +109,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_416" model="account.tax.template">
@@ -121,7 +121,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">416</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -132,7 +132,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -143,7 +143,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_413" model="account.tax.template">
@@ -155,7 +155,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">413</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -166,7 +166,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -177,7 +177,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_414" model="account.tax.template">
@@ -189,7 +189,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">414</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -200,7 +200,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -211,7 +211,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_417" model="account.tax.template">
@@ -223,7 +223,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">417</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -234,7 +234,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_goods_exports'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_goods_exports'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -245,7 +245,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_goods_exports'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_goods_exports'),
                 })]"/>
         </record>
         <record id="tax_vat_418" model="account.tax.template">
@@ -257,7 +257,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">418</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -268,7 +268,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_services_exports'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_services_exports'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -279,7 +279,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_services_exports'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_services_exports'),
                 })]"/>
         </record>
         <record id="tax_vat_419" model="account.tax.template">
@@ -292,7 +292,7 @@
             <field name="description">IVA EXENTO</field>
             <field name="l10n_ec_code_base">419</field>
 
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_excempt"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -303,7 +303,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -314,7 +314,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_sale_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_sale_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_444" model="account.tax.template">
@@ -327,7 +327,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">444</field>
             <field name="l10n_ec_code_applied">454</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -338,7 +338,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_other_downpayments'),
+                    'account_id': ref('l10n_ec_base.ec_other_downpayments'),
                     'plus_report_line_ids': [ref('tax_report_line_104_422')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -350,7 +350,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_other_downpayments'),
+                    'account_id': ref('l10n_ec_base.ec_other_downpayments'),
                     'minus_report_line_ids': [ref('tax_report_line_104_421')],
                 })]"/>
         </record>
@@ -364,7 +364,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">510</field>
             <field name="l10n_ec_code_applied">520</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -375,7 +375,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat'),
                     'plus_report_line_ids': [ref('tax_report_line_104_520')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -387,7 +387,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat'),
                     'minus_report_line_ids': [ref('tax_report_line_104_520')],
                 })]"/>
         </record>
@@ -401,7 +401,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">511</field>
             <field name="l10n_ec_code_applied">521</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -412,7 +412,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_assets'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_assets'),
                     'plus_report_line_ids': [ref('tax_report_line_104_521')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -424,7 +424,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_assets'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_assets'),
                     'minus_report_line_ids': [ref('tax_report_line_104_521')],
                 })]"/>
         </record>
@@ -438,7 +438,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">512</field>
             <field name="l10n_ec_code_applied">522</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -473,7 +473,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">513</field>
             <field name="l10n_ec_code_applied">523</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -484,7 +484,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_service_imports'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_service_imports'),
                     'plus_report_line_ids': [ref('tax_report_line_104_523')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -496,7 +496,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_service_imports'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_service_imports'),
                     'minus_report_line_ids': [ref('tax_report_line_104_523')],
                 })]"/>
         </record>
@@ -510,7 +510,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">514</field>
             <field name="l10n_ec_code_applied">524</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -521,7 +521,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_goods_imports'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_goods_imports'),
                     'plus_report_line_ids': [ref('tax_report_line_104_524')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -533,7 +533,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_goods_imports'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_goods_imports'),
                     'minus_report_line_ids': [ref('tax_report_line_104_524')],
                 })]"/>
         </record>
@@ -547,7 +547,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">515</field>
             <field name="l10n_ec_code_applied">525</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -558,7 +558,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_assets_imports'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_assets_imports'),
                     'plus_report_line_ids': [ref('tax_report_line_104_525')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -570,7 +570,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_assets_imports'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_assets_imports'),
                     'minus_report_line_ids': [ref('tax_report_line_104_525')],
                 })]"/>
         </record>
@@ -583,7 +583,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">517</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -594,7 +594,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -605,7 +605,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
 
         </record>
@@ -618,7 +618,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">516</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -629,7 +629,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -640,7 +640,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_518" model="account.tax.template">
@@ -652,7 +652,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA 0%</field>
             <field name="l10n_ec_code_base">518</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat0"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -663,7 +663,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -674,7 +674,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_541" model="account.tax.template">
@@ -686,7 +686,7 @@
             <field name="amount">0.0</field>
             <field name="description">NO OBJETO DE IVA</field>
             <field name="l10n_ec_code_base">541</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_not_charged"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -697,7 +697,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -708,7 +708,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_542" model="account.tax.template">
@@ -720,7 +720,7 @@
             <field name="amount">0.0</field>
             <field name="description">IVA EXENTO</field>
             <field name="l10n_ec_code_base">542</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_excempt"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -731,7 +731,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -742,7 +742,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_purchase_vat_zero'),
+                    'account_id': ref('l10n_ec_base.ec_purchase_vat_zero'),
                 })]"/>
         </record>
         <record id="tax_vat_545" model="account.tax.template">
@@ -755,7 +755,7 @@
             <field name="description">IVA 12%</field>
             <field name="l10n_ec_code_base">545</field>
             <field name="l10n_ec_code_applied">555</field>
-            <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
+            <field name="chart_template_id" ref="l10n_ec_base.l10n_ec_ifrs"/>
             <field name="tax_group_id" ref="tax_group_vat_12"/>
             <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
                 (0,0, {
@@ -766,7 +766,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_other_downpayments'),
+                    'account_id': ref('l10n_ec_base.ec_other_downpayments'),
                     'plus_report_line_ids': [ref('tax_report_line_104_555')],
                 })]"/>
             <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
@@ -778,7 +778,7 @@
                 (0,0, {
                     'factor_percent': 100,
                     'repartition_type': 'tax',
-                    'account_id': ref('l10n_ec.ec_other_downpayments'),
+                    'account_id': ref('l10n_ec_base.ec_other_downpayments'),
                     'minus_report_line_ids': [ref('tax_report_line_104_555')],
                 })]"/>
         </record>

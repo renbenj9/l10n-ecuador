@@ -1,5 +1,5 @@
 from odoo.tests import common
-
+from odoo.exceptions import ValidationError
 
 class TestModelA(common.TransactionCase):
     def test_some_action(self):
@@ -8,8 +8,11 @@ class TestModelA(common.TransactionCase):
                 'name': 'nametest',
                 'type': 'sale',
                 'l10n_latam_use_documents': True,
-                'code': 'inv'
+                'code': 'inv',
+                'l10n_ec_entity':'001'
             })
         self.assertEqual(
             record.name,
             'nametest')
+        with self.assertRaises(ValidationError):
+            record.write({'l10n_ec_entity':'abc'})

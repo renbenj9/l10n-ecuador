@@ -8,7 +8,6 @@ class TestModelA(common.TransactionCase):
                 'name': 'nametest',
                 'type': 'sale',
                 'l10n_latam_use_documents': True,
-                'l10n_latam_internal_type': 'invoice',
                 'code': 'inv'
             })
         self.assertEqual(

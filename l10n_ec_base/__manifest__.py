@@ -7,7 +7,7 @@
     'website': "https://github.com/OCA/l10n-ecuador",
     'license': 'AGPL-3',
     'version': '15.0.1.0.0',
-    'depends': ['l10n_ec', 'l10n_ec_edi'],
+    'depends': ['l10n_ec'],
     'data': [
     ],
     'demo': [],

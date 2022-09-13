@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="bi_account_view_account_journal_form_inherit" model="ir.ui.view">
+            <field name="name">bi.account.journal.form.inherit</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='bank_account']/group[1]" position="inside">
+                    <group string="Sequence Settings" attrs="{'invisible': [('type', 'not in', ('sale','purchase'))]}">
+                        <label for="bi_sequence_next_number"/>
+                        <div>
+                            <field name="bi_sequence_next_number" style="padding-right: 1.0em"/>
+                            <field name="bi_sequence_id" />
+                        </div>
+                        <label for="bi_refund_sequence_next_number"/>
+                        <div>
+                            <field name="bi_refund_sequence_next_number" style="padding-right: 1.0em"/>
+                            <field name="bi_refund_sequence_id" />
+                        </div>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="bi_view_move_form" model="ir.ui.view">
+            <field name="name">account.move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{"readonly": [("move_type", "in", ('out_invoice', 'in_invoice','out_receipt','in_receipt','out_refund', 'in_refund'))]}</attribute>
+                </xpath>
+            </field>
+        </record>
+</odoo>

@@ -2,7 +2,7 @@ from odoo import models
 
 
 class AccountEdiFormat(models.Model):
-    _name = "account.edi.format"
+    _inherit = "account.edi.format"
 
     def _is_required_for_invoice(self, invoice):
         """Indicate if this EDI must be generated for the invoice passed as parameter.

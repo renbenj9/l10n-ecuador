@@ -2,7 +2,7 @@ from odoo import fields, models
 
 
 class AccountEdiDocument(models.Model):
-    _name = "account.edi.document"
+    _inherit = "account.edi.document"
 
     l10n_ec_authorization_date = fields.Datetime(
         "Authorization Date", readonly=True, index=True

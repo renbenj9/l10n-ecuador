@@ -1,11 +1,9 @@
-from odoo import _, api, fields, models
+from odoo import _, api, models
 from odoo.exceptions import ValidationError
 
 
 class AccountJournal(models.Model):
     _inherit = "account.journal"
-
-    sequence_init = fields.Integer(string="Sequence Init", default=1)
 
     @api.constrains("l10n_ec_entity", "l10n_ec_emission")
     def _constrains_l10n_ec_entity_emission(self):

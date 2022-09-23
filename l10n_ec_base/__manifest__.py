@@ -6,9 +6,7 @@
     "license": "AGPL-3",
     "version": "15.0.1.0.0",
     "depends": ["l10n_ec"],
-    "data": [
-        "views/account_journal.xml",
-    ],
+    "data": [],
     "demo": [],
     "application": False,
     "installable": True,

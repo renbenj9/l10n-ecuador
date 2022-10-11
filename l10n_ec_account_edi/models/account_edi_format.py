@@ -1,16 +1,8 @@
 from odoo import models
+from odoo.odoo.exceptions import UserError
+from odoo.tools.translate import _
 
-from odoo.addons.account_edi_ubl_cii.models.account_edi_common import COUNTRY_EAS
-
-FORMAT_CODES = [
-    "facturx_1_0_05",
-    "ubl_bis3",
-    "ubl_de",
-    "nlcius_1",
-    "efff_1",
-    "ubl_2_1",
-    "ehf_3",
-]
+FORMAT_CODES = ["ublec_1_0"]
 
 
 class AccountEdiFormat(models.Model):
@@ -21,20 +13,10 @@ class AccountEdiFormat(models.Model):
     ####################################################
 
     def _get_xml_builder(self, company):
-        if self.code == "facturx_1_0_05":
-            return self.env["account.edi.xml.cii"]
-        # if the company's country is not in the EAS mapping, nothing is generated
-        if self.code == "ubl_bis3" and company.country_id.code in COUNTRY_EAS:
-            return self.env["account.edi.xml.ubl_bis3"]
-        # the EDI option will only appear on the journal of dutch companies
-        if self.code == "nlcius_1" and company.country_id.code == "NL":
-            return self.env["account.edi.xml.ubl_nl"]
-        # the EDI option will only appear on the journal of german companies
-        if self.code == "ubl_de" and company.country_id.code == "DE":
-            return self.env["account.edi.xml.ubl_de"]
-        # the EDI option will only appear on the journal of belgian companies
-        if self.code == "efff_1" and company.country_id.code == "BE":
-            return self.env["account.edi.xml.ubl_efff"]
+        # the EDI option will only appear on the journal of ecuadorian companies
+        # ublec_1_0 new code format edi
+        if self.code == "ublec_1_0" and company.country_id.code == "EC":
+            return self.env["account.edi.xml.ubl_ec"]
 
     def _is_ubl_cii_available(self, company):
         """
@@ -83,12 +65,32 @@ class AccountEdiFormat(models.Model):
                 "raw": xml_content,
                 "mimetype": "application/xml",
             }
-            if self.code not in ["facturx_1_0_05", "efff_1", "nlcius_1"]:
-                attachment_create_vals.update(
-                    {"res_id": invoice.id, "res_model": "account.move"}
-                )
+
+            attachment_create_vals.update(
+                {"res_id": invoice.id, "res_model": "account.move"}
+            )
 
             attachment = self.env["ir.attachment"].create(attachment_create_vals)
+            # avanzar
+
+            # YRO 1. Add flow signature
+            # YRO 1.1 Get valid electronic signature
+            key_type_record = self.env["sri.key.type"].search(
+                [("state", "=", "valid")], limit=1
+            )
+            # YRO 1.2 Send xml data for sing
+            xml_signed = key_type_record.action_sign(xml_content)
+            if not xml_signed:
+                # TODO ponerlo en ingles
+                raise UserError(
+                    _(
+                        "No se pudo firmar el documento, "
+                        "por favor verifique configuracion de firma electronica este correcta"
+                    )
+                )
+            # YRO 2  Send xml sing to SRI
+            # 3 proces response sri
+
             res[invoice] = {
                 "success": True,
                 "attachment": attachment,

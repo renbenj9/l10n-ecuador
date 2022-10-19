@@ -10,7 +10,7 @@ from lxml import etree
 from xades import XAdESContext, template  # pylint: disable=W7936
 from xades.policy import ImpliedPolicy  # pylint: disable=W7936
 
-from odoo import api, fields, models, tools
+from odoo import fields, models, tools
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
 
@@ -176,12 +176,3 @@ class SriKeyType(models.Model):
         ctx.sign(signature)
         ctx.verify(signature)
         return etree.tostring(doc, encoding="UTF-8", pretty_print=True).decode()
-
-    @api.model
-    def recompute_date_expire(self):
-        template_mail_notification_keys_expired = self.env.ref(
-            "l10n_ec_edi_oca.email_template_keys_expired"
-        )
-        company = self.env.company
-        template_mail_notification_keys_expired.send_mail(company.id)
-        return True

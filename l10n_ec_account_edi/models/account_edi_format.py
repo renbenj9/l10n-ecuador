@@ -89,8 +89,23 @@ class AccountEdiFormat(models.Model):
                     )
                 )
             # YRO 2  Send xml sing to SRI
-            # 3 proces response sri
+            xml_data_record = self.env["sri.xml.data"].search(
+                [("company_id", "=", invoice.company_id)], limit=1
+            )
 
+            xml_send = xml_data_record.action_send_xml_file()
+
+            if not xml_send:
+                # TODO pregunta que pasa si ya se envia es el proceso asincrono o sincrono
+                # TODO poner en ingles
+                raise UserError(
+                    _(
+                        "No se pudo enviar el documento, "
+                        "por favor verifique configuracion de firma electronica este correcta"
+                    )
+                )
+
+            # YRO 3. Get response sri
             res[invoice] = {
                 "success": True,
                 "attachment": attachment,

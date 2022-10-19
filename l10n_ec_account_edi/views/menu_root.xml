@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+        id="sri_electronic_documents_menu"
+        name="SRI"
+        parent="account.menu_finance"
+        groups="account.group_account_manager"
+        sequence="5"
+    >
+        <menuitem
+            id="sri_key_type_menu"
+            name="Electronic Signature Certs"
+            sequence="1"
+            action="sri_key_type_action"
+            groups="base.group_system"
+        />
+    </menuitem>
+</odoo>

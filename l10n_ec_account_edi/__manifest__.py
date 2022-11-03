@@ -17,6 +17,7 @@
         "data/edi_templates/edi_info_tributaria_data.xml",
         "data/edi_templates/edi_invoice.xml",
         "data/edi_templates/edi_liquidation.xml",
+        "data/edi_templates/edi_credit_note.xml",
         "report/edi_report_templates.xml",
         "report/report_edi_invoice.xml",
         "report/report_edi_liquidation.xml",

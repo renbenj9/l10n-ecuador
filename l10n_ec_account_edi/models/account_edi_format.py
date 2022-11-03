@@ -105,6 +105,15 @@ class AccountEdiFormat(models.Model):
                         )
                     )
 
+            if document_type == "credit_note" and document.move_type == "out_refund":
+                #TODO YRO credit note add more validations
+                if not company.l10n_ec_credit_note_version:
+                    errors.append(
+                        _(
+                            "You must set XML Version for Credit Note into company %s",
+                            company.display_name,
+                        )
+                    )
             # TODO: agregar logica para demas tipos de documento
             errors.extend(self._l10n_ec_check_edi_configuration(journal, company))
         return errors
@@ -174,7 +183,7 @@ class AccountEdiFormat(models.Model):
                 for edi_doc in edi_docs:
                     attachment = edi_doc.attachment_id
                     xml_file = edi_doc._l10n_ec_render_xml_edi()
-                    edi_doc._l10n_ec_action_check_xsd(xml_file)
+                    #edi_doc._l10n_ec_action_check_xsd(xml_file)
                     xml_signed = company.l10n_ec_key_type_id.action_sign(xml_file)
                     _logger.debug(xml_signed)
                     if not attachment:

@@ -75,6 +75,8 @@ class AccountEdiDocument(models.Model):
                 res.append(doc_line.l10n_ec_get_invoice_edi_data(line_tax_data))
             if document_type == "credit_note":
                 res.append(doc_line.l10n_ec_get_credit_note_edi_data(line_tax_data))
+            if document_type == "purchase_liquidation":
+                res.append(doc_line.l10n_ec_get_invoice_edi_data(line_tax_data))
             # TODO: agregar logica para demas tipos de documento
         return res
 
@@ -165,6 +167,8 @@ class AccountEdiDocument(models.Model):
             filename = f"factura_V{company.l10n_ec_invoice_version}"
         if document_type == "credit_note":
             filename = f"credit_note_V{company.l10n_ec_credit_note_version}"
+        if document_type == "purchase_liquidation":
+            filename = f"LiquidacionCompra_V{company.l10n_ec_liquidation_version}"
         # TODO: agregar logica para demas tipos de documento
         return path.join(base_path, f"{filename}.xsd")
 
@@ -328,6 +332,10 @@ class AccountEdiDocument(models.Model):
         if document_type == "credit_note":
             xml_file = ViewModel._render_template(
                 "l10n_ec_account_edi.ec_edi_credit_note", self._l10n_ec_get_info_credit_note()
+        if document_type == "purchase_liquidation":
+            xml_file = ViewModel._render_template(
+                "l10n_ec_account_edi.ec_edi_liquidation",
+                self._l10n_ec_get_info_liquidation(),
             )
         # TODO: agregar logica para demas tipos de documento
         return xml_file
@@ -401,6 +409,20 @@ class AccountEdiDocument(models.Model):
             "fechaEmision": (date_invoice).strftime(EDI_DATE_FORMAT),
             "dirEstablecimiento": self._l10n_ec_clean_str(
                 credit_note.journal_id.l10n_ec_emission_address_id.street or ""
+
+    def _l10n_ec_get_info_liquidation(self):
+        self.ensure_one()
+        invoice = self.move_id
+        date_invoice = invoice.invoice_date
+        company = invoice.company_id or self.env.company
+        taxes_data = invoice._l10n_ec_get_taxes_grouped_by_tax_group()
+        amount_total = abs(taxes_data.get("base_amount") + taxes_data.get("tax_amount"))
+        currency = invoice.currency_id
+        currency_name = currency.name or "DOLAR"
+        invoice_data = {
+            "fechaEmision": (date_invoice).strftime(EDI_DATE_FORMAT),
+            "dirEstablecimiento": self._l10n_ec_clean_str(
+                invoice.journal_id.l10n_ec_emission_address_id.street or ""
             )[:300],
             "contribuyenteEspecial": company.l10n_ec_get_resolution_data(date_invoice),
             "obligadoContabilidad": self._l10n_ec_get_required_accounting(
@@ -420,6 +442,15 @@ class AccountEdiDocument(models.Model):
                 credit_note.commercial_partner_id.street or "NA"
             )[:300],
             "totalSinImpuestos": self._l10n_ec_number_format(credit_note.amount_untaxed, 6),
+            "tipoIdentificacionProveedor": invoice.l10n_ec_get_identification_type(),
+            "razonSocialProveedor": self._l10n_ec_clean_str(
+                invoice.commercial_partner_id.name
+            )[:300],
+            "identificacionProveedor": (invoice.commercial_partner_id.vat or "NA"),
+            "direccionProveedor": self._l10n_ec_clean_str(
+                invoice.commercial_partner_id.street or "NA"
+            )[:300],
+            "totalSinImpuestos": self._l10n_ec_number_format(invoice.amount_untaxed, 6),
             "totalDescuento": self._l10n_ec_number_format(
                 self._l10n_ec_compute_amount_discount(), 6
             ),
@@ -430,6 +461,9 @@ class AccountEdiDocument(models.Model):
             "valorModificacion":self._l10n_ec_number_format(amount_total,6),
             "moneda": currency_name,
             "pagos": credit_note._l10n_ec_get_payment_data(),
+            "importeTotal": self._l10n_ec_number_format(amount_total, 6),
+            "moneda": currency_name,
+            "pagos": invoice._l10n_ec_get_payment_data(),
             "valorRetIva": False,
             "valorRetRenta": False,
             "detalles": self._l10n_ec_header_get_document_lines_edi_data(taxes_data),
@@ -439,8 +473,10 @@ class AccountEdiDocument(models.Model):
         }
         credit_note_data.update(self._l10n_ec_get_info_tributaria(credit_note))
         return credit_note_data
-
-
+           "infoAdicional": self._l10n_ec_get_info_aditional(),
+        }
+        invoice_data.update(self._l10n_ec_get_info_tributaria(invoice))
+        return invoice_data
     def _l10n_ec_edi_send_xml(self, client_ws, xml_file):
         """
         Enviar a validar el comprobante con la clave de acceso

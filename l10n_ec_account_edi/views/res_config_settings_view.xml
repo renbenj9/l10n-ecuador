@@ -92,6 +92,13 @@
                                 <label for="l10n_ec_credit_note_version" string="Credit Note" />
                                 <field
                                     name="l10n_ec_credit_note_version"
+                            <div class="row col-12">
+                                <label
+                                    for="l10n_ec_liquidation_version"
+                                    string="Purchase Liquidation"
+                                />
+                                <field
+                                    name="l10n_ec_liquidation_version"
                                     class="oe_in_line"
                                 />
                             </div>

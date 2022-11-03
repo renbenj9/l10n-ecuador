@@ -333,6 +333,7 @@ class AccountEdiDocument(models.Model):
             xml_file = ViewModel._render_template(
                 "l10n_ec_account_edi.ec_edi_liquidation",
                 self._l10n_ec_get_info_liquidation(),
+            )
         if document_type == "credit_note":
             xml_file = ViewModel._render_template(
                 "l10n_ec_account_edi.ec_edi_credit_note", self._l10n_ec_get_info_credit_note()

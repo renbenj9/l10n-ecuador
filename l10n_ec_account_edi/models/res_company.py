@@ -28,6 +28,13 @@ class ResCompany(models.Model):
         string="Invoice Version xml",
         default="1.1.0",
     )
+    l10n_ec_credit_note_version = fields.Selection(
+        [
+            ("1.1.0", "1.1.0"),
+        ],
+        string="Credit Note Version xml",
+        default="1.1.0",
+    )
     l10n_ec_liquidation_version = fields.Selection(
         [
             ("1.0.0", "1.0.0"),

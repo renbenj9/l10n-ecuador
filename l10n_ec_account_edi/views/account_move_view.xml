@@ -12,6 +12,26 @@
                     attrs="{'invisible':[('move_type', 'not in', ('in_invoice', 'in_refund'))], 'required': [('move_type', 'in', ('in_invoice', 'in_refund'))]}"
                 />
             </xpath>
+             <xpath expr="//page[@id='other_tab']" position="before">
+                <page
+                    string="Invoice Refund"
+                    name="l10n_ec_reembolso"
+                     attrs="{'invisible': [('move_type', 'not in', ('out_refund','in_refund'))]}"
+                >
+                    <group string="Invoice">
+                        <field
+                            name="l10n_ec_legacy_document_number"
+                        />
+
+                        <field
+                            name="l10n_ec_legacy_document_date"
+                        />
+                        <field
+                            name="l10n_ec_legacy_document_authorization"
+                        />
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
     <!--Modifica Dominio y Contexto de Facturas de Proveedor para separar facturas de liquidacion de compras-->

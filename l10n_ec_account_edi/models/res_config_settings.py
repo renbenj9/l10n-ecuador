@@ -15,6 +15,9 @@ class ResConfigSettings(models.TransientModel):
     l10n_ec_invoice_version = fields.Selection(
         related="company_id.l10n_ec_invoice_version", readonly=False
     )
+    l10n_ec_credit_note_version = fields.Selection(
+        related="company_id.l10n_ec_credit_note_version", readonly=False
+    )
     l10n_ec_liquidation_version = fields.Selection(
         related="company_id.l10n_ec_liquidation_version", readonly=False
     )

@@ -331,7 +331,8 @@ class AccountEdiDocument(models.Model):
             )
         if document_type == "credit_note":
             xml_file = ViewModel._render_template(
-                "l10n_ec_account_edi.ec_edi_credit_note", self._l10n_ec_get_info_credit_note()
+                "l10n_ec_account_edi.ec_edi_credit_note",
+                self._l10n_ec_get_info_credit_note(),
             )
         if document_type == "purchase_liquidation":
             xml_file = ViewModel._render_template(
@@ -417,7 +418,9 @@ class AccountEdiDocument(models.Model):
             ),
             "codDocModificado": "01",
             "numDocModificado": credit_note.l10n_ec_legacy_document_number,
-            "fechaEmisionDocSustento": (credit_note.l10n_ec_legacy_document_date).strftime(EDI_DATE_FORMAT),
+            "fechaEmisionDocSustento": (
+                credit_note.l10n_ec_legacy_document_date
+            ).strftime(EDI_DATE_FORMAT),
             "motivo": credit_note.l10n_ec_reason,
             "tipoIdentificacionComprador": credit_note._get_l10n_ec_identification_type(),
             "razonSocialComprador": self._l10n_ec_clean_str(
@@ -428,7 +431,9 @@ class AccountEdiDocument(models.Model):
             "direccionComprador": self._l10n_ec_clean_str(
                 credit_note.commercial_partner_id.street or "NA"
             )[:300],
-            "totalSinImpuestos": self._l10n_ec_number_format(credit_note.amount_untaxed, 6),
+            "totalSinImpuestos": self._l10n_ec_number_format(
+                credit_note.amount_untaxed, 6
+            ),
             "totalDescuento": self._l10n_ec_number_format(
                 self._l10n_ec_compute_amount_discount(), 6
             ),
@@ -444,7 +449,7 @@ class AccountEdiDocument(models.Model):
             "detalles": self._l10n_ec_header_get_document_lines_edi_data(taxes_data),
             "retenciones": False,
             "infoSustitutivaGuiaRemision": False,
-            "infoAdicional": self._l10n_ec_get_info_aditional()
+            "infoAdicional": self._l10n_ec_get_info_aditional(),
         }
         credit_note_data.update(self._l10n_ec_get_info_tributaria(credit_note))
         return credit_note_data

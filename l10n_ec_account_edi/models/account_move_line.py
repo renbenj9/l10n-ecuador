@@ -60,9 +60,11 @@ class AccountMoveLine(models.Model):
             "impuestos": self._l10n_ec_get_credit_note_edi_taxes(taxes_data),
         }
         return res
+
     def _l10n_ec_get_invoice_edi_additional_data(self):
         res = []
         return res
+
     def _l10n_ec_get_credit_note_edi_additional_data(self):
         res = []
         return res
@@ -73,6 +75,7 @@ class AccountMoveLine(models.Model):
         for tax_data in taxes_data.get("tax_details", {}).values():
             tax_values.append(EdiDocument._l10n_ec_prepare_tax_vals_edi(tax_data))
         return tax_values
+
     def _l10n_ec_get_credit_note_edi_taxes(self, taxes_data):
         tax_values = []
         EdiDocument = self.env["account.edi.document"]

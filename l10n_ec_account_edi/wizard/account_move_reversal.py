@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
-from odoo import models, fields, api
+from odoo import models
+
 
 class AccountMoveReversal(models.TransientModel):
     _inherit = "account.move.reversal"
@@ -8,5 +8,3 @@ class AccountMoveReversal(models.TransientModel):
         res = super()._prepare_default_reversal(move)
         move.update({"l10n_ec_reason": self.reason})
         return res
-
-

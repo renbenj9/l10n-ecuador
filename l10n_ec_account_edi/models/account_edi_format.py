@@ -183,7 +183,7 @@ class AccountEdiFormat(models.Model):
                 for edi_doc in edi_docs:
                     attachment = edi_doc.attachment_id
                     xml_file = edi_doc._l10n_ec_render_xml_edi()
-                    #edi_doc._l10n_ec_action_check_xsd(xml_file)
+                    # edi_doc._l10n_ec_action_check_xsd(xml_file)
                     xml_signed = company.l10n_ec_key_type_id.action_sign(xml_file)
                     _logger.debug(xml_signed)
                     if not attachment:

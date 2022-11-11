@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <odoo>
     <template id="ec_edi_credit_note">
-        <notaCredito id="comprobante" t-att-version="company.l10n_ec_credit_note_version">
+        <notaCredito
+            id="comprobante"
+            t-att-version="company.l10n_ec_credit_note_version"
+        >
             <t t-call="l10n_ec_account_edi.ec_edi_info_tributaria" />
             <infoNotaCredito>
                <fechaEmision t-out="fechaEmision" />
@@ -14,9 +17,9 @@
                </t>
                <obligadoContabilidad t-out="obligadoContabilidad" />
                <rise t-out="rise" />
-               <codDocModificado t-out="codDocModificado"/>
-               <numDocModificado t-out="numDocModificado"/>
-               <fechaEmisionDocSustento t-out="fechaEmisionDocSustento"/>
+               <codDocModificado t-out="codDocModificado" />
+               <numDocModificado t-out="numDocModificado" />
+               <fechaEmisionDocSustento t-out="fechaEmisionDocSustento" />
                <totalSinImpuestos t-out="totalSinImpuestos" />
                <valorModificacion t-out="valorModificacion" />
                <moneda t-out="moneda" />
@@ -24,8 +27,8 @@
                    <totalImpuesto t-as="totalImpuesto" t-foreach="totalConImpuestos">
                        <codigo t-out="totalImpuesto.get('codigo')" />
                        <codigoPorcentaje
-                           t-out="totalImpuesto.get('codigoPorcentaje')"
-                       />
+                            t-out="totalImpuesto.get('codigoPorcentaje')"
+                        />
                        <baseImponible t-out="totalImpuesto.get('baseImponible')" />
                        <valor t-out="totalImpuesto.get('valor')" />
                    </totalImpuesto>

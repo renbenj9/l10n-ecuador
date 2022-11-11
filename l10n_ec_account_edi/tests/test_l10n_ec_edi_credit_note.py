@@ -44,13 +44,17 @@ class TestL10nClDte(TestL10nECEdiCommon):
             use_payment_term=False, auto_post=True
         )
         # Añadir pago total a la factura
-        self.generate_payment(credit_note_ids=credit_note.ids, journal=self.journal_cash)
+        self.generate_payment(
+            credit_note_ids=credit_note.ids, journal=self.journal_cash
+        )
         self.assertEqual(credit_note.payment_state, "paid")
         edi_doc = credit_note._get_edi_document(self.edi_format)
         edi_doc._process_documents_web_services(with_commit=False)
         self.assertEqual(credit_note.state, "posted")
         self.assertTrue(edi_doc.l10n_ec_xml_access_key)
-        self.assertEqual(credit_note.l10n_ec_xml_access_key, edi_doc.l10n_ec_xml_access_key)
+        self.assertEqual(
+            credit_note.l10n_ec_xml_access_key, edi_doc.l10n_ec_xml_access_key
+        )
         self.assertEqual(credit_note.l10n_ec_authorization_date, False)
         # Agregar fecha de autorización y cambiar de estado
         edi_doc.write(

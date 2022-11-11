@@ -9,6 +9,8 @@ from .test_edi_common import TestL10nECEdiCommon
 
 _logger = logging.getLogger(__name__)
 
+FORM_ID = "l10n_ec_account_edi.account_invoice_liquidation_purchase_form_view"
+
 
 @tagged("post_install_l10n", "post_install", "-at_install")
 class TestL10nClDte(TestL10nECEdiCommon):
@@ -51,6 +53,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
             journal=journal,
             latam_document_type=latam_document_type,
             use_payment_term=use_payment_term,
+            form_id=FORM_ID,
         )
         invoice = form.save()
         if auto_post:
@@ -189,6 +192,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
             move_type="in_invoice",
             internal_type="purchase_liquidation",
             partner=self.partner_dni,
+            form_id=FORM_ID,
         )
         self.assertIn(form.journal_id, journal + self.journal_purchase)
         self.assertRecordValues(
@@ -233,7 +237,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
         """Validaciones de cantidad y valor total en 0 en lineas de liquidación de compra"""
         self._setup_edi_company_ec()
         invoice = self._l10n_ec_prepare_edi_liquidation()
-        with Form(invoice) as form:
+        with Form(invoice, FORM_ID) as form:
             with form.invoice_line_ids.edit(0) as line:
                 line.quantity = 0
         with self.assertRaises(UserError):

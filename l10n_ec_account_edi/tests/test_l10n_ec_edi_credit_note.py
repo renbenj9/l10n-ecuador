@@ -10,7 +10,7 @@ from .test_edi_common import TestL10nECEdiCommon
 _logger = logging.getLogger(__name__)
 
 
-FORM_ID = "l10n_ec_account_edi.account.view_move_form"
+FORM_ID = "account.view_move_form"
 
 
 @tagged("post_install_l10n", "post_install", "-at_install")

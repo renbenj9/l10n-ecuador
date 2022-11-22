@@ -45,10 +45,6 @@ class TestL10nClDte(TestL10nECEdiCommon):
         """
         partner = partner or self.partner_dni
         latam_document_type = latam_document_type or self.env.ref("l10n_ec.ec_dt_04")
-        l10n_ec_legacy_document_number = ("001-008-000000001",)
-        l10n_ec_legacy_document_date = self.current_date
-        l10n_ec_legacy_document_authorization = ("111111",)
-        l10n_ec_reason = ("PRUEBAS_MOTIVO_NC",)
 
         form = self._l10n_ec_create_form_move(
             move_type="out_refund",
@@ -61,12 +57,12 @@ class TestL10nClDte(TestL10nECEdiCommon):
             use_payment_term=use_payment_term,
             form_id=FORM_ID,
         )
-        form.l10n_ec_legacy_document_number = l10n_ec_legacy_document_number
-        form.l10n_ec_legacy_document_date = l10n_ec_legacy_document_date
+        form.l10n_ec_legacy_document_number = self.get_sequence_number()
+        form.l10n_ec_legacy_document_date = self.current_datetime
         form.l10n_ec_legacy_document_authorization = (
-            l10n_ec_legacy_document_authorization
+            self.number_authorization_electronic
         )
-        form.l10n_ec_reason = l10n_ec_reason
+        form.l10n_ec_reason = "FA".get_sequence_number()
         credit_note = form.save()
         if auto_post:
             credit_note.action_post()

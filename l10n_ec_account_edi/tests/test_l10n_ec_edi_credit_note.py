@@ -28,7 +28,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
         products=None,
         journal=None,
         latam_document_type=None,
-        use_payment_term=True,
+        use_payment_term=False,
         auto_post=False,
     ):
         """Crea y devuelve una credit note electronica
@@ -45,6 +45,11 @@ class TestL10nClDte(TestL10nECEdiCommon):
         """
         partner = partner or self.partner_dni
         latam_document_type = latam_document_type or self.env.ref("l10n_ec.ec_dt_04")
+        self.l10n_ec_legacy_document_number = ("001-008-000000001",)
+        self.l10n_ec_legacy_document_date = ("17/11/2022",)
+        self.l10n_ec_legacy_document_authorization = ("111111",)
+        self.l10n_ec_reason = ("PRUEBAS_MOTIVO_NC",)
+
         form = self._l10n_ec_create_form_move(
             move_type="out_refund",
             internal_type="credit_note",
@@ -54,10 +59,6 @@ class TestL10nClDte(TestL10nECEdiCommon):
             journal=journal,
             latam_document_type=latam_document_type,
             use_payment_term=use_payment_term,
-            l10n_ec_legacy_document_number="001-008-000000004",
-            l10n_ec_legacy_document_date="17/11/2022",
-            l10n_ec_legacy_document_authorization="111111",
-            l10n_ec_reason="PRUEBAS MOTIVO NC",
             form_id=FORM_ID,
         )
         credit_note = form.save()

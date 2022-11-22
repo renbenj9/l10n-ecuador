@@ -46,7 +46,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
         partner = partner or self.partner_dni
         latam_document_type = latam_document_type or self.env.ref("l10n_ec.ec_dt_04")
         l10n_ec_legacy_document_number = ("001-008-000000001",)
-        l10n_ec_legacy_document_date = ("17/11/2022",)
+        l10n_ec_legacy_document_date = ("2022-11-21",)
         l10n_ec_legacy_document_authorization = ("111111",)
         l10n_ec_reason = ("PRUEBAS_MOTIVO_NC",)
 

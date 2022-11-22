@@ -178,6 +178,12 @@ class TestL10nClDte(TestL10nECEdiCommon):
         self.assertEqual(form.l10n_latam_document_type_id.internal_type, "credit_note")
         for document in form.l10n_latam_available_document_type_ids[:]:
             self.assertEqual(document.internal_type, "credit_note")
+        form.l10n_ec_legacy_document_number = self.get_sequence_number()
+        form.l10n_ec_legacy_document_date = self.current_datetime
+        form.l10n_ec_legacy_document_authorization = (
+            self.number_authorization_electronic
+        )
+        form.l10n_ec_reason = "FA MOTIVO"
         credit_note = form.save()
         self.assertTrue(credit_note.l10n_latam_internal_type, "credit_note")
 

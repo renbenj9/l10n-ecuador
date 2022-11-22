@@ -56,7 +56,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
             use_payment_term=use_payment_term,
             l10n_ec_legacy_document_number="001-008-000000004",
             l10n_ec_legacy_document_date="17/11/2022",
-            l10n_ec_legacy_document_authorization="1711202201110436951500110010080000000046225001016",
+            l10n_ec_legacy_document_authorization="111111",
             l10n_ec_reason="PRUEBAS MOTIVO NC",
             form_id=FORM_ID,
         )

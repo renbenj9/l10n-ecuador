@@ -180,7 +180,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
 
     def test_l10n_ec_credit_note_default_journal_form(self):
         """Test prueba en formulario de credit note, sin diarios registrados"""
-        self.journal_purchase.unlink()
+        self.journal_sale.unlink()
         credit_note_model = self.AccountMove.with_context(
             default_move_type="out_refund", internal_type="credit_note"
         )

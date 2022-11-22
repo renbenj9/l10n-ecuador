@@ -441,6 +441,7 @@ class AccountEdiDocument(models.Model):
         }
         invoice_data.update(self._l10n_ec_get_info_tributaria(invoice))
         return invoice_data
+
     def _l10n_ec_get_info_credit_note(self):
         self.ensure_one()
         credit_note = self.move_id
@@ -496,6 +497,7 @@ class AccountEdiDocument(models.Model):
         }
         credit_note_data.update(self._l10n_ec_get_info_tributaria(credit_note))
         return credit_note_data
+
     def _l10n_ec_edi_send_xml(self, client_ws, xml_file):
         """
         Enviar a validar el comprobante con la clave de acceso

@@ -21,7 +21,6 @@ class TestL10nClDte(TestL10nECEdiCommon):
         with self.assertRaises(UserError):
             credit_note.action_post()
 
-
     def _l10n_ec_prepare_edi_credit_note(
         self,
         partner=None,
@@ -78,7 +77,6 @@ class TestL10nClDte(TestL10nECEdiCommon):
         self.assertFalse(edi_doc.edi_content)
         self.assertTrue(edi_doc.error)
 
-
     def test_l10n_ec_credit_note_sri(self):
         """Crear credit note electrónica, con la configuración correcta"""
         # Configurar los datos previamente
@@ -89,13 +87,15 @@ class TestL10nClDte(TestL10nECEdiCommon):
             use_payment_term=False, auto_post=True
         )
         # TODO preguntar grupo odoo Ecuador migracion
-        #self.generate_payment(invoice_ids=invoice.ids, journal=self.journal_cash)
-        #self.assertEqual(invoice.payment_state, "paid")
+        # self.generate_payment(invoice_ids=invoice.ids, journal=self.journal_cash)
+        # self.assertEqual(invoice.payment_state, "paid")
         edi_doc = credit_note._get_edi_document(self.edi_format)
         edi_doc._process_documents_web_services(with_commit=False)
         self.assertEqual(credit_note.state, "posted")
         self.assertTrue(edi_doc.l10n_ec_xml_access_key)
-        self.assertEqual(credit_note.l10n_ec_xml_access_key, edi_doc.l10n_ec_xml_access_key)
+        self.assertEqual(
+            credit_note.l10n_ec_xml_access_key, edi_doc.l10n_ec_xml_access_key
+        )
         self.assertEqual(credit_note.l10n_ec_authorization_date, False)
         # Agregar fecha de autorización y cambiar de estado
         edi_doc.write(
@@ -113,7 +113,6 @@ class TestL10nClDte(TestL10nECEdiCommon):
             mail_sended = False
         self.assertTrue(mail_sended)
         # TODO: validar que se autorice en el SRI con una firma válida
-
 
     def test_l10n_ec_credit_note_back_sri(self):
         # Crear credit note con una fecha superior a la actual
@@ -169,15 +168,11 @@ class TestL10nClDte(TestL10nECEdiCommon):
                     }
                 ],
             )
-        self.assertEqual(
-            form.l10n_latam_document_type_id.internal_type, "credit_note"
-        )
+        self.assertEqual(form.l10n_latam_document_type_id.internal_type, "credit_note")
         for document in form.l10n_latam_available_document_type_ids[:]:
             self.assertEqual(document.internal_type, "credit_note")
         credit_note = form.save()
         self.assertTrue(credit_note.l10n_latam_internal_type, "credit_note")
-
-
 
     def test_l10n_ec_credit_note_default_journal_form(self):
         """Test prueba en formulario de credit note, sin diarios registrados"""

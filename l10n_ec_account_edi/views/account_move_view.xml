@@ -19,21 +19,26 @@
                     attrs="{'invisible': [('move_type', 'not in', ('out_refund','in_refund'))]}"
                 >
                     <group string="Invoice">
-                        <field name="l10n_ec_legacy_document_number"
-                         attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
+                        <field
+                            name="l10n_ec_legacy_document_number"
+                            attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
                                 'readonly': [('state', '!=', 'draft')]}"
                         />
-                        <field name="l10n_ec_legacy_document_date"
-                               attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
+                        <field
+                            name="l10n_ec_legacy_document_date"
+                            attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
                                 'readonly': [('state', '!=', 'draft')]}"
                         />
-                        <field name="l10n_ec_legacy_document_authorization"
-                               attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
+                        <field
+                            name="l10n_ec_legacy_document_authorization"
+                            attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
                                 'readonly': [('state', '!=', 'draft')]}"
                         />
-                        <field name="l10n_ec_reason"
-                        attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
-                                'readonly': [('state', '!=', 'draft')]}"/>
+                        <field
+                            name="l10n_ec_reason"
+                            attrs="{'required': [('move_type', 'in', ('out_refund','in_refund'))],
+                                'readonly': [('state', '!=', 'draft')]}"
+                        />
                     </group>
                 </page>
             </xpath>

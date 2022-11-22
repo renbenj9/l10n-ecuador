@@ -60,6 +60,7 @@ class AccountMoveLine(models.Model):
             "impuestos": self._l10n_ec_get_credit_note_edi_taxes(taxes_data),
         }
         return res
+
     def _l10n_ec_get_invoice_edi_additional_data(self):
         res = []
         return res

@@ -62,7 +62,7 @@ class TestL10nClDte(TestL10nECEdiCommon):
         form.l10n_ec_legacy_document_authorization = (
             self.number_authorization_electronic
         )
-        form.l10n_ec_reason = "FA".get_sequence_number()
+        form.l10n_ec_reason = "FA".self.get_sequence_number()
         credit_note = form.save()
         if auto_post:
             credit_note.action_post()

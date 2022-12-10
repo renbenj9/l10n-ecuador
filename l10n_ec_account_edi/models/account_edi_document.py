@@ -346,7 +346,7 @@ class AccountEdiDocument(models.Model):
         if document_type == "debit_note":
             xml_file = ViewModel._render_template(
                 "l10n_ec_account_edi.ec_edi_debit_note",
-                self._l10n_ec_get_info_debit_note()
+                self._l10n_ec_get_info_debit_note(),
             )
         # TODO: agregar logica para demas tipos de documento
         return xml_file
@@ -669,9 +669,12 @@ class AccountEdiDocument(models.Model):
             # Invoice data
             "codDocModificado": "01",
             "numDocModificado": debit_note.l10n_ec_legacy_document_number,
-            "fechaEmisionDocSustento": debit_note.l10n_ec_legacy_document_date.strftime(EDI_DATE_FORMAT),
-
-            "totalSinImpuestos": self._l10n_ec_number_format(debit_note.amount_untaxed, 6),
+            "fechaEmisionDocSustento": debit_note.l10n_ec_legacy_document_date.strftime(
+                EDI_DATE_FORMAT
+            ),
+            "totalSinImpuestos": self._l10n_ec_number_format(
+                debit_note.amount_untaxed, 6
+            ),
             "totalConImpuestos": self.l10n_ec_header_get_total_with_taxes(taxes_data),
             "importeTotal": self._l10n_ec_number_format(amount_total, 6),
             "pagos": debit_note._l10n_ec_get_payment_data(),

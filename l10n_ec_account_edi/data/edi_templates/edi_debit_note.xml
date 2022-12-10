@@ -24,7 +24,8 @@
                     <impuesto t-as="totalImpuesto" t-foreach="totalConImpuestos">
                         <codigo t-out="totalImpuesto.get('codigo')" />
                         <codigoPorcentaje
-                            t-out="totalImpuesto.get('codigoPorcentaje')"/>
+                            t-out="totalImpuesto.get('codigoPorcentaje')"
+                        />
                         <tarifa t-out="totalImpuesto.get('tarifa')" />
                         <baseImponible t-out="totalImpuesto.get('baseImponible')" />
                         <valor t-out="totalImpuesto.get('valor')" />

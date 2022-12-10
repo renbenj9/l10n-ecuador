@@ -106,7 +106,10 @@
                                 </ul>
                             </div>
                             <div class="row col-12">
-                                <label for="l10n_ec_debit_note_version" string="Debit Note" />
+                                <label
+                                    for="l10n_ec_debit_note_version"
+                                    string="Debit Note"
+                                />
                                 <field
                                     name="l10n_ec_debit_note_version"
                                     class="oe_in_line"

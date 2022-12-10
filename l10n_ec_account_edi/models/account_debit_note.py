@@ -2,10 +2,10 @@ from odoo import models
 
 
 class AccountDebitNote(models.TransientModel):
-    _inherit = 'account.debit.note'
+    _inherit = "account.debit.note"
 
     def _prepare_default_values(self, move):
-        """ Recover invoice data for complete debit note to Ecuador. """
+        """Recover invoice data for complete debit note to Ecuador"""
         res = super()._prepare_default_values(move)
 
         document = move.l10n_latam_document_number

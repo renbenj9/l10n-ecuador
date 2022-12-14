@@ -14,6 +14,8 @@ from odoo.exceptions import UserError
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 from odoo.tools.misc import remove_accents
 
+from . import debit_note as dn
+
 _logger = logging.getLogger(__name__)
 
 EDI_DATE_FORMAT = "%d/%m/%Y"
@@ -344,9 +346,10 @@ class AccountEdiDocument(models.Model):
                 self._l10n_ec_get_info_credit_note(),
             )
         if document_type == "debit_note":
+            debit_note = dn.DebitNote()
             xml_file = ViewModel._render_template(
                 "l10n_ec_account_edi.ec_edi_debit_note",
-                self._l10n_ec_get_info_debit_note(),
+                debit_note._l10n_ec_get_info_debit_note(self, EDI_DATE_FORMAT),
             )
         # TODO: agregar logica para demas tipos de documento
         return xml_file
@@ -643,45 +646,3 @@ class AccountEdiDocument(models.Model):
             break
         return ok, msj_list
 
-    def _l10n_ec_get_info_debit_note(self):
-        self.ensure_one()
-        debit_note = self.move_id
-        company = debit_note.company_id or self.env.company
-        date_debit = debit_note.invoice_date
-        taxes_data = debit_note._l10n_ec_get_taxes_grouped_by_tax_group()
-        amount_total = abs(taxes_data.get("base_amount") + taxes_data.get("tax_amount"))
-
-        debit_note_dict = {
-            "fechaEmision": (date_debit).strftime(EDI_DATE_FORMAT),
-            "dirEstablecimiento": self._l10n_ec_clean_str(
-                debit_note.journal_id.l10n_ec_emission_address_id.street or ""
-            )[:300],
-            "contribuyenteEspecial": company.l10n_ec_get_resolution_data(None),
-            "obligadoContabilidad": self._l10n_ec_get_required_accounting(
-                company.partner_id.property_account_position_id
-            ),
-            # Customer data
-            "tipoIdentificacionComprador": debit_note.l10n_ec_get_identification_type(),
-            "razonSocialComprador": self._l10n_ec_clean_str(
-                debit_note.commercial_partner_id.name
-            )[:300],
-            "identificacionComprador": debit_note.commercial_partner_id.vat,
-            # Invoice data
-            "codDocModificado": "01",
-            "numDocModificado": debit_note.l10n_ec_legacy_document_number,
-            "fechaEmisionDocSustento": debit_note.l10n_ec_legacy_document_date.strftime(
-                EDI_DATE_FORMAT
-            ),
-            "totalSinImpuestos": self._l10n_ec_number_format(
-                debit_note.amount_untaxed, 6
-            ),
-            "totalConImpuestos": self.l10n_ec_header_get_total_with_taxes(taxes_data),
-            "importeTotal": self._l10n_ec_number_format(amount_total, 6),
-            "pagos": debit_note._l10n_ec_get_payment_data(),
-            "detalles": self._l10n_ec_header_get_document_lines_edi_data(taxes_data),
-
-            "infoAdicional": self._l10n_ec_get_info_aditional(),
-        }
-
-        debit_note_dict.update(self._l10n_ec_get_info_tributaria(debit_note))
-        return debit_note_dict

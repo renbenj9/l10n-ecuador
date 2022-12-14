@@ -6,3 +6,4 @@ from . import sri_key_type
 from . import res_company
 from . import res_config_settings
 from . import account_debit_note
+from . import debit_note

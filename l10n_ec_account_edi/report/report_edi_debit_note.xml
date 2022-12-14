@@ -41,9 +41,8 @@
         <table class="table table-sm table-bordered-black">
             <thead>
                 <tr style="font-size: 10px;">
-                    <th name="th_cprincipal" class="amount-md">Código Principal</th>
-                    <th name="th_cant" class="amount-sm">Cantidad</th>
                     <th name="th_descrip" class="">Razón de la modificación</th>
+                    <th name="th_cant" class="amount-sm">Cantidad</th>
                     <th name="th_punit" class="amount-sm">Precio Unitario</th>
                     <th name="th_ptotal" class="amount-md">Precio Total</th>
                 </tr>
@@ -52,15 +51,10 @@
                 <t t-foreach="ordered_lines" t-as="line">
                     <tr style="font-size: 9px;" t-if="not line.display_type">
                         <td>
-                            <span
-                                t-out="line.product_id and line.product_id.default_code or 'S/N'"
-                            />
+                            <span t-field="line.name" />
                         </td>
                         <td class="text-right">
                             <span t-field="line.quantity" />
-                        </td>
-                        <td>
-                            <span t-field="line.name" />
                         </td>
                         <td class="text-right">
                             <span

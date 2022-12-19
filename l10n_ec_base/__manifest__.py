@@ -15,6 +15,7 @@
         "views/account_journal_view.xml",
         "views/account_payment_view.xml",
         "views/account_fiscal_position_view.xml",
+        "views/res_company.xml",
     ],
     "installable": True,
     "auto_install": False,

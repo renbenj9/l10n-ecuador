@@ -12,7 +12,7 @@
                     attrs="{'invisible':[('move_type', 'not in', ('in_invoice', 'in_refund'))], 'required': [('move_type', 'in', ('in_invoice', 'in_refund'))]}"
                 />
             </xpath>
-                         <xpath expr="//page[@id='other_tab']" position="before">
+            <xpath expr="//page[@id='other_tab']" position="before">
                 <page
                     string="Invoice Refund"
                     name="l10n_ec_reembolso"

@@ -86,6 +86,25 @@
                                     t-out="o.env['account.edi.document']._l10n_ec_get_required_accounting(company.partner_id.property_account_position_id)"
                                 />
                             </t>
+<!--                        TODO: Agregado temporalmente para Leyenda Regimen Rimpe    -->
+                            <t
+                                t-set="retention_agent"
+                                t-value="company.l10n_ec_retention_agent"
+                            />
+                            <t t-if="retention_agent">
+                                <br />
+                                <strong>Agente Retención Resolución No</strong>
+                                <span t-out="retention_agent" />
+                            </t>
+                            <br />
+                            <t
+                                t-set="regime_rimpe"
+                                t-value="company.l10n_ec_get_regimen()"
+                            />
+                            <t t-if="regime_rimpe">
+                                <br />
+                                <span t-out="regime_rimpe" />
+                            </t>
                         </div>
                     </td>
                     <td>

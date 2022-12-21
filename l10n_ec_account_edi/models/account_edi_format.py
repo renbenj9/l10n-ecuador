@@ -100,7 +100,7 @@ class AccountEdiFormat(models.Model):
                 if not company.l10n_ec_liquidation_version:
                     errors.append(
                         _(
-                            "You must set XML Version for Purchae Liquidation into company %s",
+                            "You must set XML Version for Purchase Liquidation into company %s",
                             company.display_name,
                         )
                     )

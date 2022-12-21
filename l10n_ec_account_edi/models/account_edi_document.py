@@ -207,6 +207,8 @@ class AccountEdiDocument(models.Model):
             business_name = self._l10n_ec_clean_str(
                 company.partner_id.l10n_ec_business_name or social_name
             )
+        retention_agent = document.company_id.l10n_ec_retention_agent
+        regime_rimpe = document.company_id.l10n_ec_get_regimen()
         data = {
             "ambiente": environment,
             "tipoEmision": "1",  # emision normal, SRI no acepta contingencia
@@ -220,7 +222,8 @@ class AccountEdiDocument(models.Model):
             "secuencial": document_number,
             "dirMatriz": emission_address,
             "regimenMicroempresas": "",
-            "agenteRetencion": "",
+            "agenteRetencion": retention_agent,
+            "contribuyenteRimpe": regime_rimpe,  # TODO:Aumentada por leyenda RIMPE
             "company": company,
         }
         return data

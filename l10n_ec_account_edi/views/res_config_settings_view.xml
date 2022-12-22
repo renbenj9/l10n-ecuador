@@ -66,6 +66,29 @@
                             </div>
                         </div>
                     </div>
+<!--                    Configurar Limite del valor de factura a Consumidor Final -->
+                    <div class="col-12 col-lg-6 o_setting_box" title="Final Consumer">
+                        <div class="o_setting_left_pane" />
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Final Consumer</span>
+                            <div class="text-muted">
+                                 Limit for billing in sales for final consumer, total amount
+                            </div>
+                            <div class="content-group">
+                                <div class="row">
+                                    <label
+                                        string="Limit Amount"
+                                        for="l10n_ec_final_consumer_limit"
+                                        class="col-lg-4 o_light_label"
+                                    />
+                                    <field
+                                        name="l10n_ec_final_consumer_limit"
+                                        class="o_light_label"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-12 col-lg-6 o_setting_box">
                         <div class="o_setting_left_pane" />
                         <div class="o_setting_right_pane">

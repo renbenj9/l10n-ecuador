@@ -3,7 +3,9 @@
     <record id="l10n_ec_view_company_form" model="ir.ui.view">
         <field name="name">l10n_ec.view.company.form</field>
         <field name="model">res.company</field>
+        <field name="priority" eval="100" />
         <field name="inherit_id" ref="base.view_company_form" />
+        priority
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
                    <field

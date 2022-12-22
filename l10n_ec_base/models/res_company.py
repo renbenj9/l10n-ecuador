@@ -12,7 +12,7 @@ class ResCompany(models.Model):
         help="",
     )
     l10n_ec_regimen = fields.Selection(
-        string="Contributor",
+        string="Regimen",
         selection=[
             ("rimpe", "CONTRIBUYENTE RÉGIMEN RIMPE"),
             ("rimpe_popular", "CONTRIBUYENTE NEGOCIO POPULAR - RÉGIMEN RIMPE"),
@@ -20,7 +20,7 @@ class ResCompany(models.Model):
     )
 
     l10n_ec_retention_agent = fields.Char(
-        "Retention Agent No",
+        "Retention Agent Nro",
         required=False,
         readonly=False,
         help="",

@@ -6,6 +6,7 @@ from zeep import Client
 from zeep.transports import Transport
 
 from odoo import _, api, models, tools
+from odoo.tools import float_compare
 
 _logger = logging.getLogger(__name__)
 
@@ -91,6 +92,25 @@ class AccountEdiFormat(models.Model):
                         _(
                             "You must set XML Version for Invoice into company %s",
                             company.display_name,
+                        )
+                    )
+                # Validación de monoto limite para Consumidor Final
+                final_consumer = self.env.ref("l10n_ec.ec_final_consumer")
+                if (
+                    document.commercial_partner_id == final_consumer
+                    and float_compare(
+                        document.amount_total,
+                        company.l10n_ec_final_consumer_limit,
+                        precision_digits=2,
+                    )
+                    == 1
+                ):
+                    errors.append(
+                        _(
+                            "The amount total %s "
+                            "is bigger than %s for final customer",
+                            document.amount_total,
+                            company.l10n_ec_final_consumer_limit,
                         )
                     )
             if (

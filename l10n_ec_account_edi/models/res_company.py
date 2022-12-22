@@ -43,6 +43,10 @@ class ResCompany(models.Model):
         string="Credit Note Version xml",
         default="1.1.0",
     )
+    l10n_ec_final_consumer_limit = fields.Float(
+        string="Invoice Sales Limit Final Consumer",
+        default=50.0,
+    )
 
     @api.model
     def l10n_ec_get_resolution_data(self, date=None):

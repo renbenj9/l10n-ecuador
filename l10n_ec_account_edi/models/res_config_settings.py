@@ -21,3 +21,8 @@ class ResConfigSettings(models.TransientModel):
     l10n_ec_credit_note_version = fields.Selection(
         related="company_id.l10n_ec_credit_note_version", readonly=False
     )
+    l10n_ec_final_consumer_limit = fields.Float(
+        string="Invoice Sales Limit Final Consumer",
+        related="company_id.l10n_ec_final_consumer_limit",
+        readonly=False,
+    )

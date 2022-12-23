@@ -43,6 +43,13 @@ class ResCompany(models.Model):
         string="Credit Note Version xml",
         default="1.1.0",
     )
+    l10n_ec_debit_note_version = fields.Selection(
+        [
+            ("1.0.0", "1.0.0"),
+        ],
+        string="Debit Note Version xml",
+        default="1.0.0",
+    )
     l10n_ec_final_consumer_limit = fields.Float(
         string="Invoice Sales Limit Final Consumer",
         default=50.0,

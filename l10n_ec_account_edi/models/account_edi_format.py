@@ -107,10 +107,9 @@ class AccountEdiFormat(models.Model):
                 ):
                     errors.append(
                         _(
-                            "The amount total %s "
-                            "is bigger than %s for final customer",
-                            document.amount_total,
-                            company.l10n_ec_final_consumer_limit,
+                            f"The amount total {document.amount_total} "
+                            f"is bigger than {company.l10n_ec_final_consumer_limit} "
+                            "for final customer",
                         )
                     )
             if (

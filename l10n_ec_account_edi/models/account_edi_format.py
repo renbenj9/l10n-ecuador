@@ -107,10 +107,13 @@ class AccountEdiFormat(models.Model):
                 ):
                     errors.append(
                         _(
-                            f"The amount total {document.amount_total} "
-                            f"is bigger than {company.l10n_ec_final_consumer_limit} "
-                            "for final customer",
+                            "The amount total $ %(Total)s is bigger than "
+                            "$ %(Limit)s for final customer"
                         )
+                        % {
+                            "Total": document.amount_total,
+                            "Limit": company.l10n_ec_final_consumer_limit,
+                        }
                     )
             if (
                 document_type == "purchase_liquidation"

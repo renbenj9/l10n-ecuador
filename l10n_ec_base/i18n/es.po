@@ -115,7 +115,7 @@ msgstr "Registrar pago"
 #. module: l10n_ec_base
 #: model:ir.model.fields,field_description:l10n_ec_base.field_res_company__l10n_ec_retention_agent
 msgid "Retention Agent Nro"
-msgstr "Agente de Retención No"
+msgstr "Agente Retención Nro"
 
 #. module: l10n_ec_base
 #: model:ir.model.fields,field_description:l10n_ec_base.field_account_payment_term__l10n_ec_sri_type

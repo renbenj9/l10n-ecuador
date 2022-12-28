@@ -170,7 +170,7 @@ class AccountEdiDocument(models.Model):
         if document_type == "purchase_liquidation":
             filename = f"LiquidacionCompra_V{company.l10n_ec_liquidation_version}"
         if document_type == "credit_note":
-            filename = f"credit_note_V{company.l10n_ec_credit_note_version}"
+            filename = f"NotaCredito_V{company.l10n_ec_credit_note_version}"
         if document_type == "debit_note":
             filename = f"NotaDebito_V{company.l10n_ec_debit_note_version}"
         # TODO: agregar logica para demas tipos de documento

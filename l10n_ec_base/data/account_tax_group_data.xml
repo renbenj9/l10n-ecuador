@@ -1,25 +1,89 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="l10n_ec.tax_group_vat_12" model="account.tax.group">
+        <field name="name">ImpGrav</field>
+        <field name="l10n_ec_type">ImpGrav</field>
         <field name="l10n_ec_xml_fe_code">2</field>
     </record>
     <record id="l10n_ec.tax_group_vat14" model="account.tax.group">
+        <field name="name">ImpGrav</field>
+        <field name="l10n_ec_type">ImpGrav</field>
         <field name="l10n_ec_xml_fe_code">2</field>
     </record>
     <record id="l10n_ec.tax_group_vat0" model="account.tax.group">
+        <field name="name">Imponible</field>
+        <field name="l10n_ec_type">Imponible</field>
         <field name="l10n_ec_xml_fe_code">2</field>
     </record>
     <record id="l10n_ec.tax_group_vat_not_charged" model="account.tax.group">
+        <field name="name">NoGraIva</field>
+        <field name="l10n_ec_type">NoGraIva</field>
         <field name="l10n_ec_xml_fe_code">2</field>
     </record>
     <record id="l10n_ec.tax_group_vat_excempt" model="account.tax.group">
+        <field name="name">ImpExe</field>
+        <field name="l10n_ec_type">ImpExe</field>
         <field name="l10n_ec_xml_fe_code">2</field>
     </record>
     <record id="l10n_ec.tax_group_withhold_income" model="account.tax.group">
+        <field name="name">RetRenta</field>
+        <field name="l10n_ec_type">RetRenta</field>
         <field name="l10n_ec_xml_fe_code">1</field>
     </record>
     <record id="l10n_ec.tax_group_withhold_vat" model="account.tax.group">
+        <field name="name">RetIva</field>
+        <field name="l10n_ec_type">RetIva</field>
         <field name="l10n_ec_xml_fe_code">2</field>
+    </record>
+    <record id="tax_group_ret_vat_b10" model="account.tax.group">
+        <field name="name">RetBien10</field>
+        <field name="l10n_ec_type">RetBien10</field>
+        <field name="l10n_ec_xml_fe_code">9</field>
+        <field name="sequence">120</field>
+        <field name="country_id" ref="base.ec" />
+    </record>
+    <record id="tax_group_ret_vat_srv20" model="account.tax.group">
+        <field name="name">RetServ20</field>
+        <field name="l10n_ec_type">RetServ20</field>
+        <field name="l10n_ec_xml_fe_code">10</field>
+        <field name="sequence">130</field>
+        <field name="country_id" ref="base.ec" />
+    </record>
+
+    <record id="tax_group_ret_vat_b30" model="account.tax.group">
+        <field name="name">RetBienes</field>
+        <field name="l10n_ec_type">RetBienes</field>
+        <field name="l10n_ec_xml_fe_code">1</field>
+        <field name="sequence">140</field>
+        <field name="country_id" ref="base.ec" />
+    </record>
+    <record id="tax_group_ret_vat_srv50" model="account.tax.group">
+        <field name="name">RetServ50</field>
+        <field name="l10n_ec_type">RetServ50</field>
+        <field name="l10n_ec_xml_fe_code">11</field>
+        <field name="sequence">150</field>
+        <field name="country_id" ref="base.ec" />
+    </record>
+    <record id="tax_group_ret_vat_srv70" model="account.tax.group">
+        <field name="name">RetServicios</field>
+        <field name="l10n_ec_type">RetServicios</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
+        <field name="sequence">160</field>
+        <field name="country_id" ref="base.ec" />
+    </record>
+    <record id="tax_group_ret_vat_srv100" model="account.tax.group">
+        <field name="name">RetServ100</field>
+        <field name="l10n_ec_type">RetServ100</field>
+        <field name="l10n_ec_xml_fe_code">3</field>
+        <field name="sequence">170</field>
+        <field name="country_id" ref="base.ec" />
+    </record>
+    <record id="tax_group_ret_ir" model="account.tax.group">
+        <field name="name">RetAir</field>
+        <field name="l10n_ec_type">RetAir</field>
+        <field name="l10n_ec_xml_fe_code">1</field>
+        <field name="sequence">170</field>
+        <field name="country_id" ref="base.ec" />
     </record>
     <record id="l10n_ec.tax_group_ice" model="account.tax.group">
         <field name="l10n_ec_xml_fe_code">3</field>

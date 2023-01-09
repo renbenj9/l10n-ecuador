@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ec.tax_report_104" model="account.tax.report">
+        <field name="l10n_ec_tax_form">104</field>
+    </record>
+
+    <record id="l10n_ec.tax_report_103" model="account.tax.report">
+        <field name="l10n_ec_tax_form">103</field>
+    </record>
+
+</odoo>

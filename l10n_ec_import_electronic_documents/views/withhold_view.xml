@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_ec_withhold_form_inherit" model="ir.ui.view">
+        <field name="name">l10n_ec.withhold.form</field>
+        <field name="model">l10n_ec.withhold</field>
+        <field name="inherit_id" ref="l10n_ec_niif.l10n_ec_withhold_form_view" />
+        <field name="priority" eval="100" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="after">
+                <div
+                    colspan="2"
+                    class="alert alert-danger"
+                    role="alert"
+                    attrs="{'invisible': [('has_amount_diff', '=', False)]}"
+                >
+                    <p>Totals not equals to imported, please review</p>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='l10n_ec_xml_data_id']" position="after">
+                <field name="l10n_ec_amount_imported" force_save="1" />
+                <field name="has_amount_diff" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

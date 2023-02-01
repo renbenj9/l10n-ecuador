@@ -9,7 +9,7 @@ from .test_l10n_ec_delivery_note_common import TestL10nDeliveryNoteCommon
 _logger = logging.getLogger(__name__)
 
 
-@tagged("post_install_l10n_ec_edi_oca", "post_install", "-at_install")
+@tagged("post_install_l10n_ec_account_edi", "post_install", "-at_install")
 class TestL10nDeliveryNote(TestL10nDeliveryNoteCommon):
     def test_l10n_ec_delivery_note_without_journal(self):
         """Crear guía de remisión sin journal compatible"""
@@ -150,7 +150,7 @@ class TestL10nDeliveryNote(TestL10nDeliveryNoteCommon):
         self.assertEqual(delivery_note.state, "done")
         edi_doc = delivery_note._get_edi_document(self.edi_format)
         with self.assertLogs(
-            "odoo.addons.l10n_ec_edi_oca.models.account_edi_format", level=logging.ERROR
+            "odoo.addons.l10n_ec_account_edi.models.account_edi_format", level=logging.ERROR
         ):
             delivery_note.action_process_edi_web_services()
         if not edi_doc.l10n_ec_xml_access_key or not edi_doc.l10n_ec_authorization_date:

@@ -4,7 +4,7 @@ from . import res_partner
 from . import sale_order
 from . import stock_picking_type
 from . import stock_picking
-from . import account_journal
+from . import l10_latam_document_type
 from . import account_move
 from . import account_edi_document
 from . import res_company

@@ -27,10 +27,10 @@
             t-att-data-oe-id="o and o.id"
             t-att-data-oe-lang="o and o.env.context.get('lang')"
         >
-            <t t-call="l10n_ec_edi_oca.electronic_report_common_head" />
+            <t t-call="l10n_ec_account_edi.electronic_report_common_head" />
             <t t-call="l10n_ec_delivery_note.report_e_delivery_note_document_body" />
         </div>
-        <t t-call="l10n_ec_edi_oca.electronic_report_page_footer" />
+        <t t-call="l10n_ec_account_edi.electronic_report_page_footer" />
     </template>
     <template id="report_e_delivery_note_document_body">
         <div class="div-bordered small">

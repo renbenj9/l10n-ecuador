@@ -166,6 +166,7 @@
                         <group>
                             <field name="journal_id" required="1" />
                             <field name="delivery_note_type" required="1" />
+                            <field name="l10n_latam_internal_type" required="1" />
                         </group>
                         <group>
                             <field
@@ -255,7 +256,7 @@
                         <page string="Note">
                             <field name="note" colspan="2" />
                         </page>
-                        <page
+                        <!--<page
                             id="edi_documents"
                             string="EDI Documents"
                             groups="base.group_no_one"
@@ -295,7 +296,7 @@
                                     />
                                 </tree>
                             </field>
-                        </page>
+                        </page>-->
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">

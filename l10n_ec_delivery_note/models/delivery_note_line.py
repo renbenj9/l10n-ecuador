@@ -26,7 +26,7 @@ class DeliveryNoteLine(models.Model):
     )
     product_qty = fields.Float("Quantity", digits="Product Unit of Measure")
     production_lot_id = fields.Many2one(
-        "stock.lot",
+        "stock.production.lot",
         "Production Lot",
         index=True,
         domain="[('product_id', '=', product_id)]",

@@ -45,9 +45,9 @@
     <record model="ir.ui.view" id="res_partner_carrier_form_view">
         <field name="name">res.partner.form</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="l10n_ec_extended.res_partner_view_form" />
+        <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='l10n_ec_foreign_type']" position="after">
+            <xpath expr="//field[@name='category_id']" position="after">
                 <field name="l10n_ec_is_carrier" />
                 <field
                     name="l10n_ec_car_plate"
@@ -61,7 +61,9 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="l10n_latam_base.view_partner_latam_form" />
         <field name="arch" type="xml">
+
             <field name='l10n_latam_identification_type_id' position="attributes">
+                <!--<field name="l10n_ec_is_carrier" invisible="1"/>-->
                 <attribute name="attrs">
                     {
                     'readonly': [('parent_id', '!=', False), ('l10n_ec_is_carrier', '=', False)]}

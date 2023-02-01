@@ -1,7 +1,7 @@
 from odoo import _, http
 from odoo.http import request
 
-from odoo.addons.l10n_ec_edi_oca.controllers.l10n_ec_portal_common_electronic import (
+from odoo.addons.l10n_ec_account_edi.controllers.l10n_ec_portal_common_electronic import (
     PortalElectronicCommon,
 )
 

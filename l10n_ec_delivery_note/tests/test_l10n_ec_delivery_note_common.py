@@ -1,9 +1,9 @@
 from odoo.tests import Form, tagged
 
-from odoo.addons.l10n_ec_edi_oca.tests.test_edi_common import TestL10nECEdiCommon
+from odoo.addons.l10n_ec_account_edi.tests.test_edi_common import TestL10nECEdiCommon
 
 
-@tagged("post_install_l10n_ec_edi_oca", "post_install", "-at_install")
+@tagged("post_install_l10n_ec_account_edi", "post_install", "-at_install")
 class TestL10nDeliveryNoteCommon(TestL10nECEdiCommon):
     @classmethod
     def setUpClass(cls):

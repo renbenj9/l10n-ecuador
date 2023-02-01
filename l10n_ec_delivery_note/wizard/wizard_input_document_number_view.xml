@@ -25,7 +25,7 @@
                         </h1>
                     </div>
                     <group col="6">
-                        <field
+                        <!--<field
                             name="invoice_id"
                             options="{'no_create': True}"
                             domain="[
@@ -34,7 +34,7 @@
                             ('journal_id.l10n_latam_internal_type', '=', 'invoice'),
                             ('state', '=', 'posted')
                             ]"
-                        />
+                        />-->
                         <field name="rise" />
                         <field name="dau" />
                     </group>
@@ -116,7 +116,7 @@
                     </group>
                     <newline />
                     <group col="6" colspan="4">
-                        <field
+                        <!--<field
                             name="invoice_id"
                             options="{'no_create': True}"
                             domain="[
@@ -125,7 +125,7 @@
                             ('journal_id.l10n_latam_internal_type', '=', 'invoice'),
                             ('state', '=', 'posted'),
                             ]"
-                        />
+                        />-->
                         <field name="rise" />
                         <field name="dau" />
                     </group>
@@ -177,7 +177,7 @@
                     </group>
                     <newline />
                     <group col="6" colspan="4">
-                        <field
+                        <!--<field
                             name="invoice_id"
                             options="{'no_create': True}"
                             domain="[
@@ -186,7 +186,7 @@
                             ('journal_id.l10n_latam_internal_type', '=', 'invoice'),
                             ('state', '=', 'posted')
                             ]"
-                        />
+                        />-->
                         <field name="rise" />
                         <field name="dau" />
                     </group>

@@ -5,7 +5,7 @@
             id="comprobante"
             t-att-version="company.l10n_ec_delivery_note_version"
         >
-            <t t-call="l10n_ec_edi_oca.ec_edi_info_tributaria" />
+            <t t-call="l10n_ec_account_edi.ec_edi_info_tributaria" />
             <infoGuiaRemision>
                 <dirEstablecimiento t-esc="dirEstablecimiento" />
                 <dirPartida t-esc="dirPartida" />
@@ -60,7 +60,7 @@
                     </detalles>
                 </destinatario>
             </destinatarios>
-            <t t-call="l10n_ec_edi_oca.ec_edi_info_adicional" />
+            <t t-call="l10n_ec_account_edi.ec_edi_info_adicional" />
         </guiaRemision>
     </template>
 </odoo>

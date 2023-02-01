@@ -30,7 +30,6 @@ class DeliveryNote(models.Model):
         readonly=True,
         states=STATES,
         check_company=True,
-        domain=[("l10n_latam_internal_type", "=", "delivery_note")],
     )
     transfer_date = fields.Date(
         required=True,
@@ -191,6 +190,10 @@ class DeliveryNote(models.Model):
         string="Is Ecuadorian Electronic Document", default=False, copy=False
     )
 
+    l10n_latam_internal_type = fields.Many2one("l10n_latam.document.type",
+        string="Document Type",
+    )
+
     @api.depends("journal_id")
     def _compute_document_number(self):
         self.filtered(
@@ -202,24 +205,24 @@ class DeliveryNote(models.Model):
         for rec in self.filtered(lambda x: x.journal_id):
             rec._set_next_sequence()
 
-    @api.depends("edi_document_ids.state")
-    def _compute_edi_state(self):
-        for note in self:
-            all_states = set(
-                note.edi_document_ids.filtered(
-                    lambda d: d.edi_format_id._needs_web_services()
-                ).mapped("state")
-            )
-            if all_states == {"sent"}:
-                note.edi_state = "sent"
-            elif all_states == {"cancelled"}:
-                note.edi_state = "cancelled"
-            elif "to_send" in all_states:
-                note.edi_state = "to_send"
-            elif "to_cancel" in all_states:
-                note.edi_state = "to_cancel"
-            else:
-                note.edi_state = False
+    # @api.depends("edi_document_ids.state")
+    # def _compute_edi_state(self):
+    #     for note in self:
+    #         all_states = set(
+    #             note.edi_document_ids.filtered(
+    #                 lambda d: d.edi_format_id._needs_web_services()
+    #             ).mapped("state")
+    #         )
+    #         if all_states == {"sent"}:
+    #             note.edi_state = "sent"
+    #         elif all_states == {"cancelled"}:
+    #             note.edi_state = "cancelled"
+    #         elif "to_send" in all_states:
+    #             note.edi_state = "to_send"
+    #         elif "to_cancel" in all_states:
+    #             note.edi_state = "to_cancel"
+    #         else:
+    #             note.edi_state = False
 
     @api.depends("edi_document_ids.error")
     def _compute_edi_error_count(self):
@@ -278,30 +281,30 @@ class DeliveryNote(models.Model):
                 f.name for f in format_web_services
             )
 
-    @api.depends(
-        "edi_document_ids.l10n_ec_authorization_date",
-        "edi_document_ids.l10n_ec_xml_access_key",
-    )
-    def _compute_l10n_ec_edi_document_data(self):
-        for note in self:
-            edi_doc = note.edi_document_ids.filtered(
-                lambda d: d.edi_format_id.code == "l10n_ec_format_sri"
-            )
-            note.l10n_ec_authorization_date = edi_doc.l10n_ec_authorization_date
-            note.l10n_ec_xml_access_key = edi_doc.l10n_ec_xml_access_key
-
-    @api.onchange("transfer_date", "delivery_date")
-    @api.constrains("transfer_date", "delivery_date")
-    def _check_transfer_dates(self):
-        for delivery_note in self:
-            if (
-                delivery_note.transfer_date
-                and delivery_note.delivery_date
-                and delivery_note.delivery_date < delivery_note.transfer_date
-            ):
-                raise ValidationError(
-                    _("The Delivery Date can't less than transfer date, please check")
-                )
+    # @api.depends(
+    #     "edi_document_ids.l10n_ec_authorization_date",
+    #     "edi_document_ids.l10n_ec_xml_access_key",
+    # )
+    # def _compute_l10n_ec_edi_document_data(self):
+    #     for note in self:
+    #         edi_doc = note.edi_document_ids.filtered(
+    #             lambda d: d.edi_format_id.code == "l10n_ec_format_sri"
+    #         )
+    #         note.l10n_ec_authorization_date = edi_doc.l10n_ec_authorization_date
+    #         note.l10n_ec_xml_access_key = edi_doc.l10n_ec_xml_access_key
+    #
+    # @api.onchange("transfer_date", "delivery_date")
+    # @api.constrains("transfer_date", "delivery_date")
+    # def _check_transfer_dates(self):
+    #     for delivery_note in self:
+    #         if (
+    #             delivery_note.transfer_date
+    #             and delivery_note.delivery_date
+    #             and delivery_note.delivery_date < delivery_note.transfer_date
+    #         ):
+    #             raise ValidationError(
+    #                 _("The Delivery Date can't less than transfer date, please check")
+    #             )
 
     @api.constrains("transfer_date")
     def _check_transfer_date(self):
@@ -378,16 +381,16 @@ class DeliveryNote(models.Model):
         )
     ]
 
-    @api.model
-    def default_get(self, fields_list):
-        values = super(DeliveryNote, self).default_get(fields_list)
-        journal_model = self.env["account.journal"]
-        journal = journal_model.search(
-            [("l10n_latam_internal_type", "=", "delivery_note")], limit=1
-        )
-        if journal:
-            values["journal_id"] = journal.id
-        return values
+    # @api.model
+    # def default_get(self, fields_list):
+    #     values = super(DeliveryNote, self).default_get(fields_list)
+    #     journal_model = self.env["account.journal"]
+    #     journal = journal_model.search(
+    #         [("l10n_latam_internal_type", "=", "delivery_note")], limit=1
+    #     )
+    #     if journal:
+    #         values["journal_id"] = journal.id
+    #     return values
 
     def unlink(self):
         for delivery_note in self:

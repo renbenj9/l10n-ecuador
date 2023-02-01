@@ -12,7 +12,7 @@ class AccountEdiFormat(models.Model):
             return False
         if (
             self.code == "l10n_ec_format_sri"
-            and note.journal_id.l10n_latam_internal_type == "delivery_note"
+            and note.l10n_latam_internal_type.internal_type == "delivery_note"
         ):
             return True
 

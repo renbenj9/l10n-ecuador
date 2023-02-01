@@ -37,7 +37,7 @@
         <field name="model">res.config.settings</field>
         <field
             name="inherit_id"
-            ref="l10n_ec_edi_oca.res_config_settings_l10n_ec_edi"
+            ref="l10n_ec_account_edi.res_config_settings_l10n_ec_edi"
         />
         <field name="arch" type="xml">
             <xpath
@@ -49,7 +49,7 @@
                     <field name="l10n_ec_delivery_note_version" class="oe_in_line" />
                 </div>
             </xpath>
-            <div id="notification_email_electronic_document" position="inside">
+            <!--<div id="notification_email_electronic_document" position="inside">
                 <div id="email_delivery_note" class="col-12 col-md-6 o_setting_box">
                     <div class="o_setting_left_pane">
                         <field name="l10n_ec_send_mail_remission" />
@@ -61,7 +61,7 @@
                         />
                     </div>
                 </div>
-            </div>
+            </div>-->
         </field>
     </record>
 </odoo>

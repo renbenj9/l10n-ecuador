@@ -34,7 +34,10 @@ class StockPicking(models.Model):
         string="Emission Point",
         states=STATES,
         check_company=True,
-        domain=[("l10n_latam_internal_type", "=", "delivery_note")],
+        # domain=[("l10n_latam_internal_type", "=", "delivery_note")],
+    )
+    l10n_latam_internal_type = fields.Many2one("l10n_latam.document.type",
+        string="Document Type",
     )
 
     @api.depends("l10n_ec_delivery_note_ids.document_number")
@@ -78,7 +81,7 @@ class StockPicking(models.Model):
             }
         )
         for pick in self.filtered("l10n_ec_create_delivery_note"):
-            if not self.move_ids and not self.move_line_ids:
+            if not self.move_lines and not self.move_line_ids:
                 raise UserError(_("Please add some lines to move"))
             # If no lots when needed, raise error
             picking_type = self.picking_type_id
@@ -91,9 +94,10 @@ class StockPicking(models.Model):
                     lambda m: m.state not in ("done", "cancel")
                 )
             )
+            reserved_qty = 0
             no_reserved_quantities = all(
                 float_is_zero(
-                    move_line.reserved_qty,
+                    reserved_qty,
                     precision_rounding=move_line.product_uom_id.rounding,
                 )
                 for move_line in self.move_line_ids
@@ -198,6 +202,7 @@ class StockPicking(models.Model):
             "stock_picking_ids": [(4, self.id)],
             "delivery_carrier_id": self.l10n_ec_delivery_carrier_id.id,
             "l10n_ec_car_plate": self.l10n_ec_car_plate,
+            "l10n_latam_internal_type": self.l10n_latam_internal_type.id,
             "journal_id": self.l10n_ec_delivery_note_journal_id.id,
             "invoice_id": self.env.context.get("invoice_id", False),
             "rise": self.env.context.get("rise", False),

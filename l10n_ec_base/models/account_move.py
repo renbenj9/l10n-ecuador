@@ -7,9 +7,9 @@ from odoo import _, fields, models
 
 _logger = logging.getLogger(__name__)
 
-BASES_IMPONIBLES = ["ImpExe", "ImpGrav", "Imponible", "Reembolso", "NoGraIva"]
+TAXABLE_BASES = ["ImpExe", "ImpGrav", "Imponible", "Reembolso", "NoGraIva"]
 
-RET_COMPRAS = [
+PURCHASE_WHITHHOLD = [
     "RetAir",
     "RetIva",
     "RetBien10",
@@ -24,21 +24,21 @@ RET_COMPRAS = [
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    sri_ats_line_ids = fields.One2many(
+    l10n_ec_sri_ats_line = fields.One2many(
         "l10n_ec.sri.ats.line", inverse_name="invoice_id", string=_("ATS Line")
     )
 
-    sri_tax_line_ids = fields.One2many(
+    l10n_ec_sri_tax_line = fields.One2many(
         "l10n_ec.sri.tax.line", inverse_name="invoice_id", string=_("SRI Taxes")
     )
 
-    def get_sri_tax_lines(self):
+    def l10n_ec_get_sri_tax_lines(self):
         for inv in self:
             tax_lines = {}
             sri_tax_lines = []
             for line in inv.invoice_line_ids.sorted(lambda x: x.price_subtotal):
-                if line.sri_tax_line_ids:
-                    line.sri_tax_line_ids.unlink()
+                if line.l10n_ec_sri_tax_line:
+                    line.l10n_ec_sri_tax_line.unlink()
                 for taxline in line.tax_ids:
                     for tax in taxline:
                         if line not in tax_lines:
@@ -120,7 +120,7 @@ class AccountMove(models.Model):
                             sri_tax_lines.append({**base_vals, **vals})
             return sri_tax_lines
 
-    def consolidate_sri_tax_lines(self):
+    def l10n_ec_consolidate_sri_tax_lines(self):
         """
         Crea un consolidado de impuestos en la factura para
         permitir la revisión de impuestos por parte del contador.
@@ -128,11 +128,11 @@ class AccountMove(models.Model):
         """
         for inv in self:
             # Limpiamos las líneas de impuestos previamente creados.
-            inv.sri_tax_line_ids.unlink()
+            inv.l10n_ec_sri_tax_line.unlink()
 
             sri_tax_lines = []
 
-            lines = self.invoice_line_ids.mapped("sri_tax_line_ids")
+            lines = self.invoice_line_ids.mapped("l10n_ec_sri_tax_line")
             for line in lines:
                 tax_line = next(
                     (
@@ -167,10 +167,10 @@ class AccountMove(models.Model):
                 self.env["l10n_ec.sri.tax.line"].create(tax)
         return True
 
-    def get_sri_ats_lines(self):
+    def l10n_ec_get_sri_ats_lines(self):
         for inv in self:
             # Limpia líneas de ATS anteriormente calculadas
-            inv.sri_ats_line_ids.unlink()
+            inv.l10n_ec_sri_ats_line.unlink()
 
             # Hacemos una lista de los sustentos de la factura.
             sustentos = inv.invoice_line_ids.mapped(
@@ -208,7 +208,7 @@ class AccountMove(models.Model):
                         "tax_ids.l10n_ec_tax_support_id.code"
                     ) or ["NA"]
                     if codsustento and codsustento[0] == s:
-                        for tl in line.sri_tax_line_ids:
+                        for tl in line.l10n_ec_sri_tax_line:
                             # AGREGAMOS LAS BASES DE IMPUESTO SEGÚN CORRESPONDE.
                             if tl.group.l10n_ec_type == "NoGraIva":
                                 basenograiva += tl.base
@@ -243,7 +243,7 @@ class AccountMove(models.Model):
                                 montoice += tl.amount
 
                             # HACEMOS LOS DICCIONARIOS DE RETENCIONES DE IR.
-                            if tl.group.l10n_ec_type in RET_COMPRAS:
+                            if tl.group.l10n_ec_type in PURCHASE_WHITHHOLD:
                                 # Buscamos una línea de retención con el mismo código.
                                 air = next(
                                     (
@@ -340,7 +340,7 @@ class AccountMove(models.Model):
                 self.env["l10n_ec.sri.ats.line"].create(l)
         return True
 
-    def get_sri_cero_iva(self):
+    def l10n_ec_get_sri_cero_iva(self):
         """
         Si la linea no tiene retención de IVA creamos un impuesto con
         IVA 0% para el xml de retenciones de venta en facturación electrónica.
@@ -351,7 +351,7 @@ class AccountMove(models.Model):
             for line in inv.invoice_line_ids:
                 base = sum(
                     t.base
-                    for t in line.sri_tax_line_ids
+                    for t in line.l10n_ec_sri_tax_line
                     if t.group.l10n_ec_type == "RetAir"
                 )
                 residual = line.price_subtotal - base
@@ -372,7 +372,7 @@ class AccountMove(models.Model):
                     )
         return True
 
-    def get_sri_cero_air(self):
+    def l10n_ec_get_sri_cero_air(self):
         """
         En caso de haber valores no declarados en el formulario 103
         Creamos un impuesto en el campo 332 por retención 0% general.
@@ -386,7 +386,7 @@ class AccountMove(models.Model):
 
                 # Agregamos el 332 solo si hay una base imponible.
                 if not any(
-                    tax.tax_group_id.l10n_ec_type in BASES_IMPONIBLES
+                    tax.tax_group_id.l10n_ec_type in TAXABLE_BASES
                     for tax in line.tax_ids
                 ):
                     continue
@@ -395,7 +395,7 @@ class AccountMove(models.Model):
                 # y el subtotal para cubrir casos como el 322.
                 base = sum(
                     t.base
-                    for t in line.sri_tax_line_ids
+                    for t in line.l10n_ec_sri_tax_line
                     if t.group.l10n_ec_type == "RetAir"
                 )
                 residual = line.price_subtotal - base
@@ -416,41 +416,44 @@ class AccountMove(models.Model):
                     )
         return True
 
-    def button_prepare_sri_declaration(self):
+    def button_prepare_l10n_ec_sri_declaration(self):
         for row in self:
             # Genera las lineas de impuestos y ats en compras y ventas.
-            for line in row.get_sri_tax_lines():
+            for line in row.l10n_ec_get_sri_tax_lines():
                 self.env["l10n_ec.sri.tax.line"].create(line)
 
             # Aplicar solo en compras.
             # Antes de get_sri_ats_lines y consolidate_sri_tax_lines.
             # TODO revisar si es necesario esto en notas de credito
             if row.move_type == "in_invoice":
-                row.get_sri_cero_air()
+                row.l10n_ec_get_sri_cero_air()
 
             # Aplicar solo en ventas.
             if row.move_type in ("out_refund", "out_invoice"):
-                row.get_sri_cero_iva()
+                row.l10n_ec_get_sri_cero_iva()
 
             # Consolida las lineas de impuestos en compras y ventas.
-            row.consolidate_sri_tax_lines()
+            row.l10n_ec_consolidate_sri_tax_lines()
 
             # Se debe ejecutar luego de las anteriores para tener todos los impuestos.
-            row.get_sri_ats_lines()
+            row.l10n_ec_get_sri_ats_lines()
         return True
 
     def action_post(self):
         res = super().action_post()
         for row in self:
-            if row.move_type not in ["entry", "out_receipt", "in_receipt"]:
-                row.button_prepare_sri_declaration()
+            if (
+                row.move_type not in ["entry", "out_receipt", "in_receipt"]
+                and row.company_id.country_id.code == "EC"
+            ):
+                row.button_prepare_l10n_ec_sri_declaration()
         return res
 
 
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    sri_tax_line_ids = fields.One2many(
+    l10n_ec_sri_tax_line = fields.One2many(
         "l10n_ec.sri.tax.line", inverse_name="invoice_line_id", string="SRI Taxes"
     )
 

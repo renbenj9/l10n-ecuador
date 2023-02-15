@@ -89,19 +89,20 @@
             <field name="inherit_id" ref="account.view_move_form" />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='state']" position="before">
-                    <button name="button_prepare_sri_declaration" string="SRI declaration"
-                            type="object" />
+                    <button name="button_prepare_l10n_ec_sri_declaration" string="SRI declaration"
+                            type="object" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('company_id.country_id.code', '=', 'EC'), ('state', '=', 'posted')]}"
+                            groups="account.group_account_invoice" />
                 </xpath>
                 <xpath expr="//field[@name='invoice_line_ids']//form//group[last()]" position="after">
-                    <field name="sri_tax_line_ids" nolabel="1" readonly="1" force_save="1"/>
+                    <field name="l10n_ec_sri_tax_line" nolabel="1" readonly="1" force_save="1"/>
                 </xpath>
                 <xpath expr="//notebook/page" position="after">
-                    <page string="Impuestos" attrs="{'invisible': [('move_type', 'in', ['entry', 'out_receipt', 'in_receipt'])]}">
+                    <page string="Impuestos" attrs="{'invisible': [('move_type', 'in', ['entry', 'out_receipt', 'in_receipt']), ('company_id.country_id.code', '=', 'EC')]}">
                         <group string="ATS Line">
-                            <field name="sri_ats_line_ids" nolabel="1" readonly="1" force_save="1"/>
+                            <field name="l10n_ec_sri_ats_line" nolabel="1" readonly="1" force_save="1"/>
                         </group>
                         <group string="Tax Details">
-                            <field name="sri_tax_line_ids" nolabel="1" readonly="1" force_save="1"/>
+                            <field name="l10n_ec_sri_tax_line" nolabel="1" readonly="1" force_save="1"/>
                         </group>
                     </page>
                 </xpath>

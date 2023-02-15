@@ -45,6 +45,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">510</field>
         <field name="l10n_ec_code_applied">520</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_5" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -83,6 +84,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">510</field>
         <field name="l10n_ec_code_applied">520</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_6" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -121,6 +123,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">510</field>
         <field name="l10n_ec_code_applied">520</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_8" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -165,6 +168,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">511</field>
         <field name="l10n_ec_code_applied">521</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_3" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -209,6 +213,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">512</field>
         <field name="l10n_ec_code_applied">522</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_0" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -245,6 +250,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">512</field>
         <field name="l10n_ec_code_applied">522</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_2" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -281,6 +287,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">512</field>
         <field name="l10n_ec_code_applied">522</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_5" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -317,6 +324,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">512</field>
         <field name="l10n_ec_code_applied">522</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_8" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -353,6 +361,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">512</field>
         <field name="l10n_ec_code_applied">522</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_7" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -395,6 +404,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">513</field>
         <field name="l10n_ec_code_applied">523</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_6" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -439,6 +449,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">514</field>
         <field name="l10n_ec_code_applied">524</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_6" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -483,6 +494,7 @@
         <field name="description">IVA 12%</field>
         <field name="l10n_ec_code_base">515</field>
         <field name="l10n_ec_code_applied">525</field>
+        <field name="l10n_ec_xml_fe_code">2</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_8" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat_12"/>
@@ -526,6 +538,7 @@
         <field name="amount">0.0</field>
         <field name="description">IVA 0%</field>
         <field name="l10n_ec_code_base">516</field>
+        <field name="l10n_ec_xml_fe_code">0</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_4" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat0"/>
@@ -567,6 +580,7 @@
         <field name="amount">0.0</field>
         <field name="description">IVA 0%</field>
         <field name="l10n_ec_code_base">517</field>
+        <field name="l10n_ec_xml_fe_code">0</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_2" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat0"/>
@@ -602,6 +616,7 @@
         <field name="amount">0.0</field>
         <field name="description">IVA 0%</field>
         <field name="l10n_ec_code_base">517</field>
+        <field name="l10n_ec_xml_fe_code">0</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_4" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat0"/>
@@ -637,6 +652,7 @@
         <field name="amount">0.0</field>
         <field name="description">IVA 0%</field>
         <field name="l10n_ec_code_base">517</field>
+        <field name="l10n_ec_xml_fe_code">0</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_5" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat0"/>
@@ -672,6 +688,7 @@
         <field name="amount">0.0</field>
         <field name="description">IVA 0%</field>
         <field name="l10n_ec_code_base">517</field>
+        <field name="l10n_ec_xml_fe_code">0</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_7" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat0"/>
@@ -707,6 +724,7 @@
         <field name="amount">0.0</field>
         <field name="description">IVA 0%</field>
         <field name="l10n_ec_code_base">517</field>
+        <field name="l10n_ec_xml_fe_code">0</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_8" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat0"/>
@@ -742,6 +760,7 @@
         <field name="amount">0.0</field>
         <field name="description">IVA 0%</field>
         <field name="l10n_ec_code_base">517</field>
+        <field name="l10n_ec_xml_fe_code">0</field>
         <field name="l10n_ec_tax_support_id" ref="l10n_ec_sri_tax_support_9" />
         <field name="chart_template_id" ref="l10n_ec.l10n_ec_ifrs"/>
         <field name="tax_group_id" ref="l10n_ec.tax_group_vat0"/>
@@ -876,4 +895,133 @@
             }),]"
         />
     </record>
+
+    <record id="l10n_ec.tax_withhold_profit_303" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_304" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_304A" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_304B" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_304C" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_304D" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_304E" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_307" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_308" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_309" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_310" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_311" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_312" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_312A" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_314A" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_314B" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_314C" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_314D" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_319" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_320" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_322" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_332" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_332A" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_332B" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_332C" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_332D" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_332G" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_332I" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_343A" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_343B" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_3440" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
+    <record id="l10n_ec.tax_withhold_profit_346" model="account.tax.template">
+        <field name="tax_group_id" ref="l10n_ec_base.tax_group_ret_ir" />
+    </record>
+
 </odoo>

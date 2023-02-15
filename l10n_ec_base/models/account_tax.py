@@ -30,7 +30,9 @@ class AccountTaxReport(models.Model):
 class AccountTaxGroup(models.Model):
     _inherit = "account.tax.group"
 
-    l10n_ec_xml_fe_code = fields.Char("Tax Code for Electronic Documents", size=5)
+    l10n_ec_xml_fe_code = fields.Char(
+        "Tax Code for Electronic Documents (Table 16, 19 and 22)", size=5
+    )
     l10n_ec_type = fields.Selection(
         selection_add=_TYPE_EXTRA_EC,
     )

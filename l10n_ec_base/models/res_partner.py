@@ -15,6 +15,8 @@ class ResPartner(models.Model):
     @api.constrains("vat", "country_id")
     def check_vat(self):
         _vat = self.vat
+        if not _vat:
+            return
         if (
             self.country_id.code != "EC"
             or _vat[2] != "9"

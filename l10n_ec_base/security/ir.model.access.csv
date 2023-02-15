@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_l10n_ec_sri_tax_support,l10n_ec_sri_tax_support,model_l10n_ec_sri_tax_support,base.group_user,1,1,1,1
+access_l10n_ec_sri_tax_line,l10n_ec_sri_tax_line,model_l10n_ec_sri_tax_line,base.group_user,1,1,1,1
+access_l10n_ec_sri_ats_line,l10n_ec_sri_ats_line,model_l10n_ec_sri_ats_line,base.group_user,1,1,1,1
+access_l10n_ec_sri_taxes,l10n_ec_sri_taxes,model_l10n_ec_sri_taxes,base.group_user,1,1,1,1
+access_l10n_ec_sri_withholdings,l10n_ec_sri_withholdings,model_l10n_ec_sri_withholdings,base.group_user,1,1,1,1

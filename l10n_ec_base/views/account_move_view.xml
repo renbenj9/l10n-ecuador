@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- l10n_ec.sri.tax.line form view -->
+        <record id="view_l10n_ec_sri_tax_line_form" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.tax.line.view.form</field>
+            <field name="model">l10n_ec.sri.tax.line</field>
+            <field name="arch" type="xml">
+                <form string="SRI Tax Form">
+                    <sheet>
+                        <group>
+                            <field name="invoice_id" readonly="1"/>
+                            <field name="tax_form"/>
+                            <field name="field"/>
+                            <field name="base"/>
+                            <field name="amount"/>
+                            <field name="group"/>
+                            <field name="percent"/>
+                            <field name="tax"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.tax.line tree view -->
+        <record id="view_l10n_ec_sri_tax_line_tree" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.tax.line.view.tree</field>
+            <field name="model">l10n_ec.sri.tax.line</field>
+            <field name="arch" type="xml">
+                <tree string="SRI Tax Form">
+                    <field name="tax_form"/>
+                    <field name="field"/>
+                    <field name="base"/>
+                    <field name="amount"/>
+                    <field name="percent"/>
+                    <field name="percent_code"/>
+                    <field name="tax"/>
+                    <field name="tax_code"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.tax.line search view -->
+        <record id="view_l10n_ec_sri_tax_line_search" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.tax.line.view.search</field>
+            <field name="model">l10n_ec.sri.tax.line</field>
+            <field name="arch" type="xml">
+                <search string="SRI Tax Form">
+                    <field name="tax_form"/>
+                    <field name="field"/>
+                    <field name="tax"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Tax Form" name="tax_form" domain='[]' context="{'group_by':'tax_form'}"/>
+                        <filter string="Field" name='field' domain='[]' context="{'group_by':'field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.tax.line pivot view -->
+        <record id="view_l10n_ec_sri_tax_line_pivot" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.tax.line.view.pivot</field>
+            <field name="model">l10n_ec.sri.tax.line</field>
+            <field name="arch" type="xml">
+                <pivot string="SRI Tax line">
+                    <field name="tax_form" type="row"/>
+                    <field name="field" type="row"/>
+                    <field name="invoice_id"/>
+                    <field name="amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.tax.line action view -->
+        <record id="action_l10n_ec_sri_tax_line" model="ir.actions.act_window">
+            <field name="name">Tax line analysis</field>
+            <field name="res_model">l10n_ec.sri.tax.line</field>
+            <field name="view_mode">pivot,form,tree</field>
+            <field name="search_view_id" ref="view_l10n_ec_sri_tax_line_search"/>
+            <field name="context">{'group_by':['tax_form','field']}</field>
+        </record>
+
+        <!-- account.move form inherit view -->
+        <record id="view_account_move_form_inherit" model="ir.ui.view">
+            <field name="name">account.move.view.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="before">
+                    <button name="button_prepare_l10n_ec_sri_declaration" string="SRI declaration"
+                            type="object" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('company_id.country_id.code', '=', 'EC'), ('state', '=', 'posted')]}"
+                            groups="account.group_account_invoice" />
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']//form//group[last()]" position="after">
+                    <field name="l10n_ec_sri_tax_line" nolabel="1" readonly="1" force_save="1"/>
+                </xpath>
+                <xpath expr="//notebook/page" position="after">
+                    <page string="Impuestos" attrs="{'invisible': [('move_type', 'in', ['entry', 'out_receipt', 'in_receipt']), ('company_id.country_id.code', '=', 'EC')]}">
+                        <group string="ATS Line">
+                            <field name="l10n_ec_sri_ats_line" nolabel="1" readonly="1" force_save="1"/>
+                        </group>
+                        <group string="Tax Details">
+                            <field name="l10n_ec_sri_tax_line" nolabel="1" readonly="1" force_save="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.ats.line tree view -->
+        <record id="view_l10n_ec_sri_ats_line_tree" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.ats.line.view.tree</field>
+            <field name="model">l10n_ec.sri.ats.line</field>
+            <field name="arch" type="xml">
+                <tree string="Tax declaration (ATS)">
+                    <field name="codsustento"/>
+                    <field name="basenograiva"/>
+                    <field name="baseimponible"/>
+                    <field name="baseimpgrav"/>
+                    <field name="baseimpexe"/>
+                    <field name="montoiva"/>
+                    <field name="montoice"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.ats.line form view -->
+        <record id="view_l10n_ec_sri_ats_line_form" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.ats.line.view.form</field>
+            <field name="model">l10n_ec.sri.ats.line</field>
+            <field name="arch" type="xml">
+                <form string="Tax declaration (ATS)">
+                    <sheet>
+                        <group>
+                            <group string="General Info">
+                                <field name="codsustento"/>
+                                <field name="basenograiva"/>
+                                <field name="baseimponible"/>
+                                <field name="baseimpgrav"/>
+                                <field name="baseimpexe"/>
+                                <field name="montoiva"/>
+                                <field name="montoice"/>
+                            </group>
+                            <group string="Purchase withholdings">
+                                <field name="valretbien10"/>
+                                <field name="valretserv20"/>
+                                <field name="valretserv50"/>
+                                <field name="valorretbienes"/>
+                                <field name="valorretservicios"/>
+                                <field name="valretserv100"/>
+                            </group>
+                            <group string="Sale withholdings">
+                                <field name="valorretrenta"/>
+                                <field name="valorretiva"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Taxes">
+                                <field name="impuestos_ids" nolabel="1"/>
+                            </page>
+                            <page string="Withholdings">
+                                <field name="retenciones_ids" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.taxes form view -->
+        <record id="view_l10n_ec_sri_taxes_form" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.taxes.view.form</field>
+            <field name="model">l10n_ec.sri.taxes</field>
+            <field name="arch" type="xml">
+                <form string="Tax details">
+                    <sheet>
+                        <group>
+                            <field name="codimpuestodocsustento"/>
+                            <field name="codigoporcentaje"/>
+                            <field name="baseimponible"/>
+                            <field name="tarifa"/>
+                            <field name="valorimpuesto"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.taxes tree view -->
+        <record id="view_l10n_ec_sri_taxes_tree" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.taxes.view.tree</field>
+            <field name="model">l10n_ec.sri.taxes</field>
+            <field name="arch" type="xml">
+                <tree string="Tax details">
+                    <field name="codimpuestodocsustento"/>
+                    <field name="codigoporcentaje"/>
+                    <field name="baseimponible"/>
+                    <field name="tarifa"/>
+                    <field name="valorimpuesto"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.withholdings form view -->
+        <record id="view_l10n_ec_sri_withholdings_form" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.withholdings.view.form</field>
+            <field name="model">l10n_ec.sri.withholdings</field>
+            <field name="arch" type="xml">
+                <form string="Withholdings details">
+                    <sheet>
+                        <group>
+                            <field name="group" />
+                            <field name="codigo" />
+                            <field name="codretair"/>
+                            <field name="baseimpair"/>
+                            <field name="porcentajeair"/>
+                            <field name="valretair"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- l10n_ec.sri.withholdings tree view -->
+        <record id="view_l10n_ec_sri_withholdings_tree" model="ir.ui.view">
+            <field name="name">l10n_ec.sri.withholdings.view.tree</field>
+            <field name="model">l10n_ec.sri.withholdings</field>
+            <field name="arch" type="xml">
+                <tree string="Withholdings details">
+                    <field name="group" />
+                    <field name="codigo" />
+                    <field name="codretair"/>
+                    <field name="baseimpair"/>
+                    <field name="porcentajeair"/>
+                    <field name="valretair"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

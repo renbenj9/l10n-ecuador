@@ -50,6 +50,9 @@ class AccountMove(models.Model):
         string="External Authorization Number", size=49
     )
     l10n_ec_reason = fields.Char(string="Refund Reason", size=300)
+    l10n_ec_additional_information_move_ids = fields.One2many(
+        "l10n.ec.additional.information", "move_id", string="Additional Information"
+    )
 
     @api.depends("invoice_date", "invoice_date_due")
     def _compute_l10n_ec_credit_days(self):

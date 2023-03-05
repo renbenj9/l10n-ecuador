@@ -689,3 +689,22 @@ class AccountEdiDocument(models.Model):
 
         debit_note_dict.update(self._l10n_ec_get_info_tributaria(debit_note))
         return debit_note_dict
+
+    @api.model
+    def send_mail_to_partners(self):
+        all_companies = self.env["res.company"].search([])
+        _logger.info("Launched action schedule to send email")
+        for company in all_companies:
+            self.with_company(company).send_mail_to_partner()
+
+    @api.model
+    def send_mail_to_partner(self):
+        account_moves = self.env["account.move"].search(
+            [
+                ("state", "=", "posted"),
+                ("is_move_sent", "=", False),
+                ("edi_document_ids.state", "=", "sent"),
+            ]
+        )
+        for account_move in account_moves:
+            account_move.l10n_ec_send_email()

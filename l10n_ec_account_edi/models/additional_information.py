@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*
 from odoo import fields, models
 
 
@@ -9,4 +8,3 @@ class AdditionalInformation(models.Model):
     name = fields.Char(required=True)
     description = fields.Char(required=True)
     move_id = fields.Many2one("account.move", "Account Move", ondelete="cascade")
-

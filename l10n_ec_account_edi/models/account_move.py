@@ -315,7 +315,7 @@ class AccountMove(models.Model):
         self.ensure_one()
         res = self.action_invoice_sent()
         context = res["context"]
-        send_mail = compose_message.with_context(context).create({})
+        send_mail = compose_message.with_context(**context).create({})
         try:
             move = self
             if move.partner_id.email:
